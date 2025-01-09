@@ -1,0 +1,89 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Layout */
+.content {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Navigation */
+.toolbar {
+    background-color: #2196F3;
+    padding: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.nav-button {
+    background: none;
+    border: none;
+    color: white;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .content {
+        padding: 1rem;
+    }
+} 
+
+/* Theme toggle button styles */
+#themeToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
+}
+
+#themeToggle i {
+    font-size: 1.2em;
+}
+
+/* Add light theme variables */
+:root {
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --secondary-bg: #1976D2;
+    --border-color: #1565C0;
+    --link-color: #0066cc;
+}
+
+/* Apply light theme variables */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.toolbar {
+    background-color: var(--secondary-bg);
+    border-color: var(--border-color);
+} 

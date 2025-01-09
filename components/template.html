@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{root}}favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{root}}favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{root}}favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="{{root}}favicon_io/site.webmanifest">
+    <link rel="stylesheet" href="{{root}}assets/css/styles.css">
+    <link rel="stylesheet" href="{{root}}styles/dark-theme.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="{{root}}js/theme.js"></script>
+</head>
+<body>
+    <nav class="toolbar">
+        <a href="{{root}}index.html" class="nav-button">Home</a>
+        <a href="{{root}}pages/projects.html" class="nav-button">Projects</a>
+        <a href="{{root}}pages/about.html" class="nav-button">About</a>
+        <button id="themeToggle" class="nav-button" aria-label="Toggle dark mode">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
+    <main class="content">
+        {{content}}
+    </main>
+</body>
+</html> 
