@@ -15,7 +15,7 @@ function NavBar({ onThemeToggle }) {
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-content">
-        <div className="nav-logo">
+        <a href="#" className="nav-logo">
           <svg className="logo-icon" viewBox="0 0 24 24" width="24" height="24">
             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" 
                   fill="none" 
@@ -25,9 +25,8 @@ function NavBar({ onThemeToggle }) {
                   strokeLinejoin="round"/>
           </svg>
           <span>Jacknight&</span>
-        </div>
+        </a>
         <div className="nav-links">
-          <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
           <a href="#contact">Contact</a>

@@ -1,10 +1,5 @@
-/* Base styles and CSS variables */
+/* Base styles */
 :root {
-  --bg-primary: #ffffff;
-  --text-primary: #1a1a1a;
-  --nav-bg: rgba(255, 255, 255, 0.8);
-  --nav-border: rgba(0, 0, 0, 0.1);
-  
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -13,13 +8,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.dark-mode {
-  --bg-primary: #1a1a1a;
-  --text-primary: #ffffff;
-  --nav-bg: rgba(26, 26, 26, 0.8);
-  --nav-border: rgba(255, 255, 255, 0.1);
 }
 
 body {
