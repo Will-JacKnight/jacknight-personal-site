@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import NavBar from './components/NavBar'
-import './App.css'
+import './styles/App.css'
+import mossImage from './assets/Moss.jpg'
+import saihojiImage from './assets/Saihoji.jpg'
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
@@ -8,10 +10,35 @@ function App() {
     return savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
   });
 
+  const mossRef = useRef(null);
+  const saihojiRef = useRef(null);
+
   useEffect(() => {
     document.documentElement.classList.toggle('dark-mode', darkMode);
     localStorage.setItem('theme', darkMode ? 'dark' : 'light');
   }, [darkMode]);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          // Optional: unobserve after animation
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    if (mossRef.current) observer.observe(mossRef.current);
+    if (saihojiRef.current) observer.observe(saihojiRef.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   const toggleTheme = () => {
     setDarkMode(prev => !prev);
@@ -22,8 +49,18 @@ function App() {
       <NavBar onThemeToggle={toggleTheme} />
       <main className="content">
         <section id="home" className="hero-section">
-          <h1>Welcome to My Personal Page</h1>
-          <p>This is my React-powered personal website.</p>
+          <h1>Simplify & Improve</h1>
+          <p>Welcome to Jacknight's personal website.</p>
+          
+          <div ref={mossRef} className="image-container">
+            <img src={mossImage} alt="Moss Garden" className="hero-image" />
+            <p className="image-caption">Enchanting Moss Garden</p>
+          </div>
+
+          <div ref={saihojiRef} className="image-container">
+            <img src={saihojiImage} alt="Saihoji Temple" className="hero-image" />
+            <p className="image-caption">Saihoji Temple - The Moss Temple</p>
+          </div>
         </section>
         {/* Add more sections here */}
       </main>

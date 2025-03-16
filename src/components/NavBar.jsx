@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './NavBar.css';
+import '../styles/NavBar.css';
 
 function NavBar({ onThemeToggle }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,7 +24,7 @@ function NavBar({ onThemeToggle }) {
                   strokeLinecap="round" 
                   strokeLinejoin="round"/>
           </svg>
-          <span>Portfolio</span>
+          <span>Jacknight&</span>
         </div>
         <div className="nav-links">
           <a href="#home">Home</a>

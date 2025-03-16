@@ -1,11 +1,13 @@
+/* Base styles and CSS variables */
 :root {
+  --bg-primary: #ffffff;
+  --text-primary: #1a1a1a;
+  --nav-bg: rgba(255, 255, 255, 0.8);
+  --nav-border: rgba(0, 0, 0, 0.1);
+  
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,9 +15,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.dark-mode {
+  --bg-primary: #1a1a1a;
+  --text-primary: #ffffff;
+  --nav-bg: rgba(26, 26, 26, 0.8);
+  --nav-border: rgba(255, 255, 255, 0.1);
+}
+
 body {
   margin: 0;
-  display: flex;
   min-width: 320px;
   min-height: 100vh;
 }
