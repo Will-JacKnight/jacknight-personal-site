@@ -143,4 +143,10 @@
     font-size: 1em;
     margin-top: 1rem;
   }
+}
+
+.page-container {
+  padding-top: 64px; /* Height of the navbar */
+  min-height: 100vh;
+  background-color: var(--bg-primary);
 } 

@@ -1,0 +1,13 @@
+{
+  "blogInfo": {
+    "name": "Jack Night's Blog",
+    "description": "Thoughts, ideas, and technical insights",
+    "author": "Jack Night"
+  },
+  "categories": [
+    "Technology",
+    "Programming",
+    "Web Development",
+    "Personal"
+  ]
+} 

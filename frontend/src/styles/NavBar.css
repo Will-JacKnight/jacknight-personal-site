@@ -44,6 +44,10 @@
 
 .logo-icon {
   transition: transform 0.3s ease;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  display: block;
 }
 
 .nav-logo:hover .logo-icon {

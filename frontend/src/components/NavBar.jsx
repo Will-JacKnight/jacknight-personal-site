@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import '../styles/NavBar.css';
 
 function NavBar({ onThemeToggle }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const isDarkMode = document.documentElement.classList.contains('dark-mode');
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,21 +18,20 @@ function NavBar({ onThemeToggle }) {
   return (
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-content">
-        <a href="#" className="nav-logo">
-          <svg className="logo-icon" viewBox="0 0 24 24" width="24" height="24">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"/>
-          </svg>
+        <Link to="/" className="nav-logo">
+          <img 
+            src="/&.svg" 
+            alt="Ampersand Logo" 
+            className="logo-icon"
+            width="24" 
+            height="24"
+          />
           <span>Jacknight&</span>
-        </a>
+        </Link>
         <div className="nav-links">
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
+          <Link to="/projects">Projects</Link>
+          <Link to="/blog">Blog</Link>
+          <Link to="/about">About</Link>
           <button 
             className="theme-toggle" 
             onClick={onThemeToggle}
