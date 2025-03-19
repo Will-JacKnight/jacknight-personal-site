@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import ColorInheritIcon from './ColorInheritIcon';
 import '../styles/NavBar.css';
 
 function NavBar({ onThemeToggle }) {
@@ -19,12 +20,11 @@ function NavBar({ onThemeToggle }) {
     <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="nav-content">
         <Link to="/" className="nav-logo">
-          <img 
+          <ColorInheritIcon 
             src="/&.svg" 
-            alt="Ampersand Logo" 
             className="logo-icon"
             width="24" 
-            height="24"
+            height="24" 
           />
           <span>Jacknight&</span>
         </Link>
