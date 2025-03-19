@@ -4,17 +4,34 @@ import About from './components/About'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import './styles/App.css'
-import mossImage from './assets/Moss.jpg'
-import saihojiImage from './assets/Saihoji.jpg'
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
+    // First check localStorage
     const savedTheme = localStorage.getItem('theme');
-    return savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches);
+    if (savedTheme) {
+      return savedTheme === 'dark';
+    }
+    // If no saved preference, use system preference
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
 
   const mossRef = useRef(null);
   const saihojiRef = useRef(null);
+
+  // Listen for system color scheme changes
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const handleChange = (e) => {
+      // Only update if user hasn't manually set a preference
+      if (!localStorage.getItem('theme')) {
+        setDarkMode(e.matches);
+      }
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark-mode', darkMode);
@@ -44,6 +61,8 @@ function App() {
 
   const toggleTheme = () => {
     setDarkMode(prev => !prev);
+    // Save user's manual preference
+    localStorage.setItem('theme', !darkMode ? 'dark' : 'light');
   };
 
   return (
@@ -65,12 +84,12 @@ function App() {
 
         <section className="images-section">
           <div ref={mossRef} className="image-container">
-            <img src={mossImage} alt="Moss Garden" className="hero-image" />
+            <img src="/images/Moss.jpg" alt="Moss Garden" className="hero-image" />
             <p className="image-caption">Enchanting Moss Garden</p>
           </div>
 
           <div ref={saihojiRef} className="image-container">
-            <img src={saihojiImage} alt="Saihoji Temple" className="hero-image" />
+            <img src="/images/Saihoji.jpg" alt="Saihoji Temple" className="hero-image" />
             <p className="image-caption">Saihoji Temple - The Moss Temple</p>
           </div>
         </section>
