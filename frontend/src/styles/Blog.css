@@ -119,6 +119,30 @@
   opacity: 0.7;
 }
 
+.blog-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.blog-link:hover {
+  transform: translateY(-2px);
+}
+
+.back-to-blogs {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.back-to-blogs:hover {
+  color: var(--accent-color);
+}
+
 @media (max-width: 768px) {
   .blog-section {
     padding: 4rem 1rem;

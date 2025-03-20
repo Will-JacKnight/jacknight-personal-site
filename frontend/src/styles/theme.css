@@ -13,6 +13,10 @@
   --button-bg: rgba(0, 0, 0, 0.1);
   --button-hover: rgba(0, 0, 0, 0.15);
   --shadow-color: rgba(0, 0, 0, 0.1);
+
+  /* Tag styles - updated to match project tags */
+  --tag-bg: rgba(0, 0, 0, 0.05);
+  --tag-text: #666666;
 }
 
 .dark-mode {
@@ -30,6 +34,10 @@
   --button-bg: rgba(255, 255, 255, 0.1);
   --button-hover: rgba(255, 255, 255, 0.15);
   --shadow-color: rgba(0, 0, 0, 0.2);
+
+  /* Dark mode tag styles - updated to match project tags */
+  --tag-bg: rgba(255, 255, 255, 0.05);
+  --tag-text: #999999;
 }
 
 /* Base styles that depend on theme */

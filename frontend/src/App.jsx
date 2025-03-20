@@ -4,6 +4,7 @@ import NavBar from './components/NavBar'
 import Home from './components/Home'
 import ProjectsPage from './components/ProjectsPage'
 import Blog from './components/Blog'
+import BlogPage from './components/BlogPage'
 import AboutPage from './components/AboutPage'
 import './styles/App.css'
 
@@ -52,6 +53,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPage />} />
             <Route path="/about" element={<AboutPage />} />
           </Routes>
         </main>

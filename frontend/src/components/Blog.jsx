@@ -1,35 +1,65 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/Blog.css';
-import BlogPost from './BlogPost';
+import '../styles/shared.css';
 
+// Main blog listing page at /blog
 function Blog() {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    // In a real app, this would be an API call
-    setPosts([
-      {
-        slug: 'building-a-modern-portfolio',
-        title: 'Building a Modern Portfolio Website with React',
-        date: '2024-03-21',
-        description: 'A comprehensive guide on creating a modern, responsive portfolio website using React and modern web technologies.'
-      }
-    ]);
+    fetch('/api/content/posts')
+      .then(res => res.json())
+      .then(data => {
+        setPosts(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Error fetching posts:', err);
+        setError('Failed to load blog posts');
+        setLoading(false);
+      });
   }, []);
+
+  if (loading) return (
+    <section id="blog" className="blog-section">
+      <div className="blog-container">
+        <h2 className="section-title">Blog</h2>
+        <div className="blog-loading">Loading posts...</div>
+      </div>
+    </section>
+  );
+
+  if (error) return (
+    <section id="blog" className="blog-section">
+      <div className="blog-container">
+        <h2 className="section-title">Blog</h2>
+        <div className="blog-error">{error}</div>
+      </div>
+    </section>
+  );
 
   return (
     <section id="blog" className="blog-section">
       <div className="blog-container">
-        <h2 className="section-title">Blog</h2>
+        <h2 className="section-title">Articles</h2>
         <div className="blog-posts">
           {posts.map(post => (
             <div key={post.slug} className="blog-preview">
-              <h3>{post.title}</h3>
-              <time>{new Date(post.date).toLocaleDateString()}</time>
-              <p>{post.description}</p>
-              <div className="blog-content">
-                <BlogPost slug={post.slug} />
-              </div>
+              <Link to={`/blog/${post.slug}`} className="blog-link">
+                <h3>{post.title}</h3>
+                <time>{new Date(post.date).toLocaleDateString()}</time>
+                <p>{post.description}</p>
+                {post.tags && (
+                  <div className="tags-container">
+                    {post.tags.map(tag => (
+                      <span key={tag} className="tag">{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </Link>
             </div>
           ))}
         </div>

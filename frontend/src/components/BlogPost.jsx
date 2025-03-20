@@ -2,28 +2,15 @@ import { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Highlight, themes } from 'prism-react-renderer';
 
+// Individual post content renderer
 function BlogPost({ slug }) {
   const [post, setPost] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     fetch(`/api/content/posts/${slug}`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to load post');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setPost({
-          ...data.metadata,
-          content: data.content
-        });
-      })
-      .catch(error => {
-        console.error('Error loading blog post:', error);
-        setError(error.message);
-      });
+      .then(res => res.json())
+      .then(data => setPost(data));
   }, [slug]);
 
   if (error) return <div className="blog-error">{error}</div>;
@@ -32,7 +19,7 @@ function BlogPost({ slug }) {
   return (
     <article className="blog-post">
       <header className="blog-post-header">
-        <h1>{post.title}</h1>
+        <h1>{post.metadata?.title}</h1>
         {post.date && (
           <time dateTime={post.date}>
             {new Date(post.date).toLocaleDateString()}
