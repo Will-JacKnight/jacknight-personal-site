@@ -1,4 +1,4 @@
-import Projects from './Projects';
+import Projects from '../components/Projects';
 import '../styles/shared.css';
 
 function ProjectsPage() {

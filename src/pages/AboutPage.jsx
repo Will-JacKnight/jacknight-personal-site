@@ -1,5 +1,5 @@
-import About from './About';
-import Contact from './Contact';
+import About from '../components/About';
+import Contact from '../components/Contact';
 
 function AboutPage() {
   return (

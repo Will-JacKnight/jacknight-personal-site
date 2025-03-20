@@ -1,5 +1,5 @@
 import { useParams, Link } from 'react-router-dom';
-import BlogPost from './BlogPost';
+import BlogPost from '../components/BlogPost';
 import '../styles/Blog.css';
 
 function BlogPage() {
