@@ -1,0 +1,64 @@
+.card {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: var(--card-hover);
+  box-shadow: 0 8px 30px var(--shadow-color);
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.card-date {
+  font-size: 0.9em;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.card-description {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  flex-grow: 1;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.card-tag {
+  background: var(--tag-bg);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9em;
+  opacity: 0.8;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-tag:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--shadow-color);
+} 

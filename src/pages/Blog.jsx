@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Blog.css';
 import '../styles/shared.css';
+import Card from '../components/Card';
 
 // Simple front matter parser for the browser
 const parseFrontMatter = (content) => {
@@ -126,20 +127,14 @@ const Blog = () => {
         <h2 className="section-title">Articles</h2>
         <div className="blog-posts">
           {posts.map((post) => (
-            <article key={post.slug} className="card">
-              <Link to={`/blog/${post.slug}`} className="blog-link">
-                <h3 className="card-title">{post.title}</h3>
-                <p className="post-date">{post.date.toLocaleDateString()}</p>
-                <p className="card-description">{post.description}</p>
-                {post.tags && (
-                  <div className="card-tags">
-                    {post.tags.map(tag => (
-                      <span key={tag} className="card-tag">{tag}</span>
-                    ))}
-                  </div>
-                )}
-              </Link>
-            </article>
+            <Card
+              key={post.slug}
+              title={post.title}
+              description={post.description}
+              date={post.date.toLocaleDateString()}
+              tags={post.tags}
+              link={`/blog/${post.slug}`}
+            />
           ))}
         </div>
       </div>
