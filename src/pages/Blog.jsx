@@ -47,20 +47,86 @@ const Blog = () => {
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        // Fetch and parse each markdown file directly
-        const postFiles = [
-          'my-first-post.md',
-          'building-a-modern-portfolio.md',
-          'README.md'
-        ];
+        // Step 1: Fetch the index.json file to check what files are available
+        const response = await fetch('/posts/index.json');
+        
+        // If the index.json doesn't exist or fails, we'll try our backup approach
+        if (!response.ok) {
+          console.warn('Could not load posts index, trying alternate approach');
+          await loadPostsManually();
+          return;
+        }
+        
+        // Get the index of all posts
+        const postsIndex = await response.json();
+        
+        // Step 2: Fetch the actual content of each post
+        const postPromises = postsIndex.map(async (postInfo) => {
+          try {
+            const response = await fetch(`/posts/${postInfo.slug}.md`);
+            if (!response.ok) {
+              console.warn(`Failed to load ${postInfo.slug}.md`);
+              return null;
+            }
+            
+            const text = await response.text();
+            const { metadata } = parseFrontMatter(text);
+            
+            // Combine the index metadata with the front matter metadata
+            // Front matter takes precedence if there's a conflict
+            return {
+              ...postInfo,
+              ...metadata,
+              date: new Date(metadata.date || postInfo.date)
+            };
+          } catch (err) {
+            console.warn(`Error processing ${postInfo.slug}.md:`, err);
+            return null;
+          }
+        });
 
-        const postPromises = postFiles.map(async (filename) => {
+        const loadedPosts = (await Promise.all(postPromises))
+          .filter(post => post !== null);
+        
+        // Sort posts by date, newest first
+        const sortedPosts = loadedPosts.sort((a, b) => 
+          b.date - a.date
+        );
+        
+        setPosts(sortedPosts);
+        setError(null);
+      } catch (err) {
+        console.error('Error loading posts from index:', err);
+        
+        // Fall back to manual discovery if loading from index fails
+        await loadPostsManually();
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    // Fallback method to discover posts
+    const loadPostsManually = async () => {
+      try {
+        // First, we'll check the directory for all .md files
+        // This requires a slightly different approach since browsers can't list directories
+        
+        // Known post files (from your directory listing)
+        const knownPostFiles = [
+          'my-first-post.md',
+          'early-thoughts-of-orion.md'
+        ];
+        
+        // Try to discover any other md files that might exist
+        // by trying to fetch them (this would be more robust with a server-side solution)
+        const postPromises = knownPostFiles.map(async (filename) => {
           try {
             const response = await fetch(`/posts/${filename}`);
             if (!response.ok) {
               console.warn(`Failed to load ${filename}`);
               return null;
             }
+            
             const text = await response.text();
             const { metadata } = parseFrontMatter(text);
             
@@ -83,7 +149,7 @@ const Blog = () => {
         });
 
         const loadedPosts = (await Promise.all(postPromises))
-          .filter(post => post !== null); // Remove any failed posts
+          .filter(post => post !== null);
         
         // Sort posts by date, newest first
         const sortedPosts = loadedPosts.sort((a, b) => 
@@ -93,10 +159,8 @@ const Blog = () => {
         setPosts(sortedPosts);
         setError(null);
       } catch (err) {
-        console.error('Error loading posts:', err);
+        console.error('Error loading posts manually:', err);
         setError('Failed to load blog posts');
-      } finally {
-        setLoading(false);
       }
     };
 

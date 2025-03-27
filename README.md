@@ -63,4 +63,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Jiankai Wang - [wang.jiankai@outlook.com](mailto:wang.jiankai@outlook.com)
 
 Project Link: [https://github.com/Will-JacKnight/personal-page](https://github.com/Will-JacKnight/personal-page)
- 
+
+
+## about posts
+every article should follow these styles:
+---
+title: "Your Title"
+date: "YYYY-MM-DD"
+description: "Your description"
+tags: ["tag1", "tag2"]
+---
