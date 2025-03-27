@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar'
-import Home from './components/Home'
-import ProjectsPage from './components/ProjectsPage'
-import Blog from './components/Blog'
-import BlogPage from './components/BlogPage'
-import AboutPage from './components/AboutPage'
+import Home from './pages/Home'
+import ProjectsPage from './pages/ProjectsPage'
+import Blog from './pages/Blog'
+import BlogPage from './pages/BlogPage'
+import AboutPage from './pages/AboutPage'
 import './styles/App.css'
 
 function App() {
