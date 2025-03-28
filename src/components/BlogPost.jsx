@@ -44,8 +44,8 @@ function BlogPost({ slug }) {
   useEffect(() => {
     const loadPost = async () => {
       try {
-        // Fetch the markdown file directly from public/posts
-        const response = await fetch(`/posts/${slug}.md`);
+        // Use the base URL for fetching posts
+        const response = await fetch(`${import.meta.env.BASE_URL}posts/${slug}.md`);
         if (!response.ok) {
           throw new Error('Post not found');
         }
