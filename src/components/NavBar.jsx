@@ -21,7 +21,7 @@ function NavBar({ onThemeToggle }) {
       <div className="nav-content">
         <Link to="/" className="nav-logo">
           <ColorInheritIcon 
-            src="/&.svg" 
+            src="/icons/&.svg" 
             className="logo-icon"
             width="24" 
             height="24" 

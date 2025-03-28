@@ -48,7 +48,7 @@ const Blog = () => {
     const loadPosts = async () => {
       try {
         // Step 1: Fetch the index.json file to check what files are available
-        const response = await fetch('/posts/index.json');
+        const response = await fetch('posts/index.json');
         
         // If the index.json doesn't exist or fails, we'll try our backup approach
         if (!response.ok) {
@@ -63,7 +63,7 @@ const Blog = () => {
         // Step 2: Fetch the actual content of each post
         const postPromises = postsIndex.map(async (postInfo) => {
           try {
-            const response = await fetch(`/posts/${postInfo.slug}.md`);
+            const response = await fetch(`posts/${postInfo.slug}.md`);
             if (!response.ok) {
               console.warn(`Failed to load ${postInfo.slug}.md`);
               return null;
@@ -121,7 +121,7 @@ const Blog = () => {
         // by trying to fetch them (this would be more robust with a server-side solution)
         const postPromises = knownPostFiles.map(async (filename) => {
           try {
-            const response = await fetch(`/posts/${filename}`);
+            const response = await fetch(`posts/${filename}`);
             if (!response.ok) {
               console.warn(`Failed to load ${filename}`);
               return null;

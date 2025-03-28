@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/will-jacknight.github.io/',
+  base: '/',
   publicDir: 'public',
   server: {
     proxy: {
@@ -14,4 +14,5 @@ export default defineConfig({
       },
     },
   },
-}) 
+})
+

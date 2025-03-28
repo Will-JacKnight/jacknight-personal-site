@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://will-jacknight.github.io/will-jacknight.github.io",
+  "homepage": "https://will-jacknight.github.io/",
   "scripts": {
     "dev": "node scripts/generate-posts-index.js && vite",
     "build": "node scripts/generate-posts-index.js && vite build",
