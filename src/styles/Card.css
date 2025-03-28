@@ -61,4 +61,15 @@
 .card-tag:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px var(--shadow-color);
-} 
+}
+
+
+.highlight-tag {
+  background: rgba(255, 204, 0, 0.15) !important;
+  color: #e4c200 !important;
+  border: 1px solid rgba(255, 204, 0, 0.3);
+}
+
+.highlight-tag:hover {
+  background: rgba(255, 204, 0, 0.2) !important;
+}
