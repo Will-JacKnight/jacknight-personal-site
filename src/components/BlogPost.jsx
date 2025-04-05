@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Highlight, themes } from 'prism-react-renderer';
 
@@ -35,6 +35,11 @@ const parseFrontMatter = (content) => {
     return { metadata: {}, content };
   }
 };
+
+// Add this function at the top level
+const isImageNode = (node) => 
+  node.type === 'paragraph' && 
+  node.children?.every(child => child.type === 'image');
 
 // Individual post content renderer
 function BlogPost({ slug }) {
@@ -110,6 +115,25 @@ function BlogPost({ slug }) {
                 <code className={className} {...props}>
                   {children}
                 </code>
+              );
+            },
+            img: ({node, src, alt, ...props}) => {
+              // Handle both absolute and relative URLs
+              const imageSrc = src.startsWith('http') 
+                ? src 
+                : `${import.meta.env.BASE_URL}${src.startsWith('/') ? src.slice(1) : src}`;
+              
+              return (
+                <figure className="blog-post-figure">
+                  <img
+                    src={imageSrc}
+                    alt={alt}
+                    loading="lazy"
+                    className="blog-post-image"
+                    {...props}
+                  />
+                  {alt && <figcaption className="blog-post-caption">{alt}</figcaption>}
+                </figure>
               );
             }
           }}
