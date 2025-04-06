@@ -42,12 +42,12 @@ function Home() {
 
       <section className="images-section">
         <div ref={mossRef} className="image-container">
-          <img src="/images/Moss.jpg" alt="Moss Garden" className="hero-image" />
+          <img src="/images/moss.jpg" alt="Moss Garden" className="hero-image" />
           <p className="image-caption">Enchanting Moss Garden</p>
         </div>
 
         <div ref={saihojiRef} className="image-container">
-          <img src="/images/Saihoji.jpg" alt="Saihoji Temple" className="hero-image" />
+          <img src="/images/saihoji-garden.jpg" alt="Saihoji Temple" className="hero-image" />
           <p className="image-caption">Saihoji Temple - The Moss Temple</p>
         </div>
       </section>
