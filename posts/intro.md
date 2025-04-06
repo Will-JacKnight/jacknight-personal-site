@@ -23,5 +23,5 @@ You see the nature, you see the nurturance, you see momentum.
 
 You discover deeper in yourself.
 
-![](/public/images/saihoji-monk.jpg)
-![saihoji moss garden, photographed in Aug,2024](/public/images/saihoji-garden.jpg)
+![](images/saihoji-monk.jpg)
+![saihoji moss garden, photographed in Aug,2024](images/saihoji-garden.jpg)
