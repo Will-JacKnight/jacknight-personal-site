@@ -1,28 +1,23 @@
 # Personal Portfolio Website
 
-A minimalist personal portfolio website built with React, featuring a clean design aesthetic and smooth animations. The site showcases my work while embodying the principles of simplification and improvement.
+### Frontend
+- React
 
 ## Development
 
-### Available Scripts
+### Local development
 
-- `npm run dev`: Start development server
-- `npm run build`: Build for production
-- `npm run preview`: Preview production build
+- `npm run dev`: Start local development server
+- `npm run deploy`: deploy to github pages
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Contact
-
-Jiankai Wang - [wang.jiankai@outlook.com](mailto:wang.jiankai@outlook.com)
 
 ## about posts
-every article should follow these styles:
+Every blog article should contain the following header:
+```
 ---
 title: "Your Title"
 date: "YYYY-MM-DD"
 description: "Your description"
 tags: ["tag1", "tag2"]
 ---
+```
