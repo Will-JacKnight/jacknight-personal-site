@@ -1,7 +1,17 @@
 # Personal Portfolio Website
 
+## Project Architecture
+
 ### Frontend
-- React
+- React: for its easy of use, and community support
+- future upgrades: nextjs
+
+### Backend
+- not implemented but considering pure serverless options.
+- platform need to be easy swappable
+- options: cloudflare workers, heroku (credits)
+- other server options:  [Railway](https://railway.com/?referralCode=SDfuE1), [Fly.io](https://fly.io/)
+
 
 ## Development
 
@@ -11,7 +21,9 @@
 - `npm run deploy`: deploy to github pages
 
 
-## about posts
+## Blog Posts
+
+### Configurations
 Every blog article should contain the following header:
 ```
 ---
