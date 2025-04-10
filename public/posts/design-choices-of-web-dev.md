@@ -35,3 +35,15 @@ tags: ["web dev", "trade-offs", "system design"]
 ## Backend
 
 ## Deployment
+
+### Environment Structure
+```
+# Branch Structure
+main (production)
+  └── staging
+       └── development
+            └── feature branches
+
+# Deployment Flow
+feature/* -> development -> staging -> main
+```

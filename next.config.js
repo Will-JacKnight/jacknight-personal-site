@@ -1,16 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  output: 'standalone',
   images: {
-    domains: ['storage.googleapis.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
   },
-  // Enable static exports for GitHub Pages
-  output: 'export',
-  // Add basePath for GitHub Pages
-  basePath: process.env.NODE_ENV === 'production' ? '/personal-page' : '',
-  // Add assetPrefix for GitHub Pages
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/personal-page/' : '',
-}
+};
 
-module.exports = nextConfig 
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
+
+module.exports = withMDX(nextConfig); 
