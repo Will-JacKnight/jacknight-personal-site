@@ -1,0 +1,153 @@
+import PageLayout from "@/components/PageLayout"
+import Link from "next/link"
+import { allBlogs } from "@/lib/content-collections"
+import { notFound } from "next/navigation"
+import ReactMarkdown from 'react-markdown';
+import { Highlight, themes } from 'prism-react-renderer';
+import { cn } from "@/lib/utils";
+import type { Metadata } from "next"
+
+type BlogPageProps = {
+  params: { slug: string[] }
+}
+
+// Add this function to generate a list of paths for testing during development
+// You can remove this once content-collections is working properly
+function getPlaceholderBlogs() {
+  if (allBlogs.length > 0) {
+    return allBlogs;
+  }
+  
+  // Return placeholder blogs just for development
+  return [
+    {
+      slug: 'hello-world',
+      title: 'Hello World',
+      date: '2024-04-01',
+      content: 'This is a placeholder blog post.',
+      _meta: { path: 'hello-world' }
+    },
+    {
+      slug: 'early-thoughts-of-orion',
+      title: 'Early Thoughts of Orion',
+      date: '2024-03-15',
+      content: 'This is a placeholder blog post.',
+      _meta: { path: 'early-thoughts-of-orion' }
+    }
+  ];
+}
+
+function getBlogFromParams(slugs: string[]) {
+  const slug = slugs?.join("/") || ""
+  
+  // Use either actual blogs or placeholder blogs
+  const blogsToSearch = allBlogs.length > 0 ? allBlogs : getPlaceholderBlogs();
+  const blog = blogsToSearch.find((blog) => blog.slug === slug)
+
+  if (!blog) {
+    return null
+  }
+
+  return blog
+}
+
+export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
+  const blog = getBlogFromParams(params.slug)
+
+  if (!blog) {
+    return {
+      title: 'Blog Post Not Found'
+    }
+  }
+
+  return {
+    title: `${blog.title} | Jacknight`,
+    description: blog.description || blog.title,
+  }
+}
+
+export function generateStaticParams(): { slug: string[] }[] {
+  // Use either actual blogs or placeholder blogs
+  const blogsToUse = allBlogs.length > 0 ? allBlogs : getPlaceholderBlogs();
+  
+  return blogsToUse.map((blog) => ({
+    slug: blog.slug.split('/'),
+  }))
+}
+
+export default function BlogPage({ params }: BlogPageProps) {
+  const blog = getBlogFromParams(params.slug)
+
+  if (!blog) {
+    notFound()
+  }
+
+  return (
+    <PageLayout>
+      <div className="max-w-3xl mx-auto">
+        <Link 
+          href="/blog" 
+          className="inline-flex items-center text-muted-foreground hover:text-primary mb-8"
+        >
+          ← Back to Blogs
+        </Link>
+        
+        <article className="prose dark:prose-invert max-w-none">
+          <header className="mb-8">
+            <h1 className="text-4xl font-bold mb-4">{blog.title}</h1>
+            {blog.date && (
+              <time dateTime={blog.date} className="text-muted-foreground">
+                {new Date(blog.date).toLocaleDateString()}
+              </time>
+            )}
+            {blog.tags && (
+              <div className="flex flex-wrap gap-2 mt-4">
+                {blog.tags.map((tag) => (
+                  <span key={tag} className="px-2 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-full">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </header>
+          
+          <div className="prose dark:prose-invert">
+            <ReactMarkdown
+              components={{
+                code({ node, className, children, ...props }) {
+                  const match = /language-(\w+)/.exec(className || '');
+                  const isInline = !className;
+                  return !isInline && match ? (
+                    <Highlight
+                      theme={themes.vsDark}
+                      code={String(children).replace(/\n$/, '')}
+                      language={match[1]}
+                    >
+                      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+                        <pre className={cn(className, "rounded-lg p-4 my-4")} style={style}>
+                          {tokens.map((line, i) => (
+                            <div key={i} {...getLineProps({ line })}>
+                              {line.map((token, key) => (
+                                <span key={key} {...getTokenProps({ token })} />
+                              ))}
+                            </div>
+                          ))}
+                        </pre>
+                      )}
+                    </Highlight>
+                  ) : (
+                    <code className={className} {...props}>
+                      {children}
+                    </code>
+                  );
+                }
+              }}
+            >
+              {blog.content}
+            </ReactMarkdown>
+          </div>
+        </article>
+      </div>
+    </PageLayout>
+  )
+} 
