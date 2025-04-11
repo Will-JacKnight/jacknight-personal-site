@@ -38,7 +38,7 @@ not-found.tsx // ✅ Required for 404 pages
 ### Styles
 - Tailwind CSS over native CSS
     - describe styles declaratively using class names
-        ```
+        ```tsx
         <div className="bg-blue-500 text-white p-4 rounded-lg">
         Hello, Tailwind!
         </div>
@@ -53,7 +53,7 @@ not-found.tsx // ✅ Required for 404 pages
 ## Deployment
 
 ### Environment Structure
-```
+```bsh
 # Branch Structure
 main (production)
   └── staging

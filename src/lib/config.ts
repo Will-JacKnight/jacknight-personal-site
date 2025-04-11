@@ -2,9 +2,9 @@ import { URL } from "url";
 
 export const config = {
   site: {
-    title: "Jack Night",
-    name: "Jack Night's Personal Site",
-    description: "Personal website and blog of Jack Night",
+    title: "Jacknight&",
+    name: "Jacknight's Personal Site",
+    description: "Personal website and blog of Jacknight",
     keywords: ["web development", "programming", "typescript", "react", "nextjs"],
     url: "https://jacknight.com",
     baseUrl: "https://jacknight.com",
@@ -18,7 +18,7 @@ export const config = {
     manifest: "/site.webmanifest",
   },
   author: {
-    name: "Jack Night",
+    name: "Jacknight",
     email: "info@jacknight.com",
     bio: "Developer and designer focused on creating elegant, functional digital experiences.",
   },

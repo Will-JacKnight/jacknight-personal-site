@@ -54,7 +54,7 @@ async function generateRSSFeed() {
 
     // Create feed
     const feed = new Feed({
-      title: "Jack Night's Blog",
+      title: "Jacknight's Blog",
       description: "Articles on web development, technology, and more",
       id: BASE_URL,
       link: BASE_URL,
