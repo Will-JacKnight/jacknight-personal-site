@@ -20,4 +20,6 @@ const withMDX = require('@next/mdx')({
   },
 });
 
-module.exports = withMDX(nextConfig); 
+const { withContentCollections } = require("@content-collections/next");
+
+module.exports = withContentCollections(withMDX(nextConfig)); 
