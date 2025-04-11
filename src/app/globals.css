@@ -4,11 +4,13 @@
  
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: #ffffff;
+    --foreground: #1a1a1a;
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.08);
  
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
@@ -36,11 +38,14 @@
   }
  
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* --background: 222.2 84% 4.9%; */
+    --background: #1a1a1a;
+    --foreground: #ffffff;
  
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
+    --card-bg: #1a1a1a;
+    --shadow-color: rgba(0, 0, 0, 0.25);
  
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
@@ -72,5 +77,35 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .transition-standard {
+    @apply transition-all duration-200 ease-in-out;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-md hover:translate-y-[-2px] transition-standard;
+  }
+  
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2;
+  }
+  
+  .card-custom {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 0 4px 20px var(--shadow-color);
+  }
+  
+  .card-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow-color);
   }
 } 

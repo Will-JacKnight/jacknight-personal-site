@@ -32,9 +32,10 @@ export default function NavBar() {
 
   const navItems = [
     { path: '/', label: 'Home' },
-    { path: '/about', label: 'About' },
-    { path: '/projects', label: 'Projects' },
     { path: '/blog', label: 'Blog' },
+    { path: '/projects', label: 'Projects' },
+    { path: '/about', label: 'About' },
+    
   ];
 
   return (

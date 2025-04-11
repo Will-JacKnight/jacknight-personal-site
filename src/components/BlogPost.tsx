@@ -78,7 +78,7 @@ export default function BlogPost({ slug }: BlogPostProps) {
 
   return (
     <article className="prose dark:prose-invert max-w-none">
-      <header className="mb-8">
+      <header className="mb-8 card-custom">
         <h1 className="text-4xl font-bold mb-4">{post.metadata?.title}</h1>
         {post.metadata?.date && (
           <time dateTime={post.metadata.date} className="text-muted-foreground">
@@ -95,7 +95,7 @@ export default function BlogPost({ slug }: BlogPostProps) {
           </div>
         )}
       </header>
-      <div className="prose dark:prose-invert">
+      <div className="card-custom prose dark:prose-invert">
         <ReactMarkdown
           components={{
             code({ node, className, children, ...props }) {
@@ -108,7 +108,7 @@ export default function BlogPost({ slug }: BlogPostProps) {
                   language={match[1]}
                 >
                   {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                    <pre className={cn(className, "rounded-lg p-4 my-4")} style={style}>
+                    <pre className={cn(className, "rounded-lg p-4 my-4 shadow-inner border border-secondary/50")} style={style}>
                       {tokens.map((line, i) => (
                         <div key={i} {...getLineProps({ line })}>
                           {line.map((token, key) => (
@@ -120,7 +120,7 @@ export default function BlogPost({ slug }: BlogPostProps) {
                   )}
                 </Highlight>
               ) : (
-                <code className={className} {...props}>
+                <code className={cn(className, "bg-secondary/30 px-1.5 py-0.5 rounded-md")} {...props}>
                   {children}
                 </code>
               );
