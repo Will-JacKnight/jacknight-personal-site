@@ -1,72 +1,69 @@
-import NavBar from "@/components/NavBar"
+import PageLayout from "@/components/PageLayout"
 import { Github, Linkedin, Mail } from "lucide-react"
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-background">
-      <NavBar />
-      <main className="container mx-auto px-4 py-8">
-        <div className="max-w-3xl mx-auto">
-          <h1 className="text-4xl font-bold mb-8">About Me</h1>
-          <div className="prose dark:prose-invert">
-            <p className="text-lg mb-6">
-              Hi, I'm Jack. I'm now a postgraduate in Computing at Imperial College London.
-            </p>
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Background</h3>
-                <p>
-                  A Mechanical Engineering graduate, a software developer and a machine learning enthusiast. 
-                  Had some experience with project management, more happy to build products.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Philosophy</h3>
-                <p>
-                  Good products speak for themselves. Our job is to make them heard.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-2">Current Focus</h3>
-                <p>
-                  Currently exploring machine learning applications and large scale software,
-                  with a particular interest in creating sustainable and scalable solutions.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
-                <div className="flex flex-wrap gap-4">
-                  <a
-                    href="https://github.com/Will-JacKnight"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    <Github className="w-5 h-5" />
-                    <span>GitHub</span>
-                  </a>
-                  <a
-                    href="https://linkedin.com/in/jiankai-wang"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    <Linkedin className="w-5 h-5" />
-                    <span>LinkedIn</span>
-                  </a>
-                  <a
-                    href="mailto:wang.jiankai@outlook.com"
-                    className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    <Mail className="w-5 h-5" />
-                    <span>Email</span>
-                  </a>
-                </div>
+    <PageLayout>
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-4xl font-bold mb-8">About Me</h1>
+        <div className="prose dark:prose-invert">
+          <p className="text-lg mb-6">
+            Hi, I'm Jack. I'm now a postgraduate in Computing at Imperial College London.
+          </p>
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Background</h3>
+              <p>
+                A Mechanical Engineering graduate, a software developer and a machine learning enthusiast. 
+                Had some experience with project management, more happy to build products.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Philosophy</h3>
+              <p>
+                Good products speak for themselves. Our job is to make them heard.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-2">Current Focus</h3>
+              <p>
+                Currently exploring machine learning applications and large scale software,
+                with a particular interest in creating sustainable and scalable solutions.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="https://github.com/Will-JacKnight"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Github className="w-5 h-5" />
+                  <span>GitHub</span>
+                </a>
+                <a
+                  href="https://linkedin.com/in/jiankai-wang"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Linkedin className="w-5 h-5" />
+                  <span>LinkedIn</span>
+                </a>
+                <a
+                  href="mailto:wang.jiankai@outlook.com"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span>Email</span>
+                </a>
               </div>
             </div>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </PageLayout>
   )
 } 

@@ -3,8 +3,9 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import ColorInheritIcon from './ColorInheritIcon';
 import { cn } from '@/lib/utils';
+import { ThemeToggle } from './theme-toggle';
+import { LogoIcon } from './icons/LogoIcon';
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,9 +42,15 @@ export default function NavBar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <ColorInheritIcon className="h-8 w-8" />
-              <span className="ml-2 text-xl font-semibold">Jack Knight</span>
+            <Link 
+              href="/" 
+              className={cn(
+                "flex items-center transition-colors hover:text-primary",
+                pathname === '/' ? "text-primary" : "text-muted-foreground"
+              )}
+            >
+              <LogoIcon src="/logo.svg" className="h-8 w-8" />
+              <span className="ml-2 text-xl font-semibold">Jacknight&</span>
             </Link>
           </div>
 
@@ -61,10 +68,16 @@ export default function NavBar() {
                 {item.label}
               </Link>
             ))}
+            <div className="ml-2">
+              <ThemeToggle />
+            </div>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center">
+            <div className="mr-2">
+              <ThemeToggle />
+            </div>
             <button
               onClick={toggleMenu}
               className="inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-primary focus:outline-none"
