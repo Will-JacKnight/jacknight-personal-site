@@ -1,7 +1,7 @@
 ---
-title: "Why this than that?"
+title: "Web Development Stack"
 date: "2025-04-09"
-description: " A mindset go-through when developing a website."
+description: " A tool set go-through when developing this particular website."
 tags: ["web dev", "trade-offs", "system design"]
 ---
 

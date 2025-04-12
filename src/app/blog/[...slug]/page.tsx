@@ -11,38 +11,9 @@ type BlogPageProps = {
   params: { slug: string[] }
 }
 
-// Add this function to generate a list of paths for testing during development
-// You can remove this once content-collections is working properly
-function getPlaceholderBlogs() {
-  if (allBlogs.length > 0) {
-    return allBlogs;
-  }
-  
-  // Return placeholder blogs just for development
-  return [
-    {
-      slug: 'hello-world',
-      title: 'Hello World',
-      date: '2024-04-01',
-      content: 'This is a placeholder blog post.',
-      _meta: { path: 'hello-world' }
-    },
-    {
-      slug: 'early-thoughts-of-orion',
-      title: 'Early Thoughts of Orion',
-      date: '2024-03-15',
-      content: 'This is a placeholder blog post.',
-      _meta: { path: 'early-thoughts-of-orion' }
-    }
-  ];
-}
-
 function getBlogFromParams(slugs: string[]) {
   const slug = slugs?.join("/") || ""
-  
-  // Use either actual blogs or placeholder blogs
-  const blogsToSearch = allBlogs.length > 0 ? allBlogs : getPlaceholderBlogs();
-  const blog = blogsToSearch.find((blog) => blog.slug === slug)
+  const blog = allBlogs.find((blog) => blog.slug === slug)
 
   if (!blog) {
     return null
@@ -67,10 +38,7 @@ export async function generateMetadata({ params }: BlogPageProps): Promise<Metad
 }
 
 export function generateStaticParams(): { slug: string[] }[] {
-  // Use either actual blogs or placeholder blogs
-  const blogsToUse = allBlogs.length > 0 ? allBlogs : getPlaceholderBlogs();
-  
-  return blogsToUse.map((blog) => ({
+  return allBlogs.map((blog) => ({
     slug: blog.slug.split('/'),
   }))
 }
@@ -107,6 +75,11 @@ export default function BlogPage({ params }: BlogPageProps) {
                     {tag}
                   </span>
                 ))}
+                {blog.highlight && (
+                  <span className="px-2 py-1 text-xs font-medium bg-amber-500/20 text-amber-600 dark:bg-amber-500/30 dark:text-amber-400 rounded-full font-semibold">
+                    {blog.highlight}
+                  </span>
+                )}
               </div>
             )}
           </header>

@@ -12,6 +12,7 @@ export type Blog = {
   tags?: string[];
   description?: string;
   featured?: boolean;
+  highlight?: string;
   content: string;
   _meta: {
     path: string;
@@ -45,6 +46,7 @@ if (typeof window === 'undefined' && fs.existsSync(contentDir)) {
         tags: data.tags,
         description: data.description,
         featured: data.featured,
+        highlight: data.highlight,
         content,
         _meta: {
           path: filename.replace('.md', '')

@@ -3,6 +3,7 @@ title: "Intros"
 date: "2025-03-29"
 description: "An introduction to my blog"
 tags: ["introduction", "blog", "moss"]
+highlight: "Featured"
 ---
 
 ### A Brief Intro

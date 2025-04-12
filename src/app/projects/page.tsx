@@ -50,16 +50,9 @@ export default function ProjectsPage() {
             return (
               <ProjectWrapper key={index}>
                 <div className={`card-custom ${project.link ? 'group-hover:cursor-pointer' : ''}`}>
-                  <div className="flex justify-between items-start">
-                    <h2 className={`text-2xl font-semibold mb-2 ${project.link ? 'group-hover:text-primary transition-colors duration-200' : ''}`}>
-                      {project.title}
-                    </h2>
-                    {project.highlight && (
-                      <span className="px-2 py-1 text-xs font-medium bg-primary/10 text-primary rounded-full">
-                        {project.highlight}
-                      </span>
-                    )}
-                  </div>
+                  <h2 className={`text-2xl font-semibold mb-2 ${project.link ? 'group-hover:text-primary transition-colors duration-200' : ''}`}>
+                    {project.title}
+                  </h2>
                   <p className="text-muted-foreground mb-4 flex-grow">{project.description}</p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, tagIndex) => (
@@ -67,6 +60,11 @@ export default function ProjectsPage() {
                         {tag}
                       </span>
                     ))}
+                    {project.highlight && (
+                      <span className="px-2 py-1 text-xs font-medium bg-amber-500/20 text-amber-600 dark:bg-amber-500/30 dark:text-amber-400 rounded-full font-semibold">
+                        {project.highlight}
+                      </span>
+                    )}
                   </div>
                   {project.link && (
                     <div className="inline-flex items-center group/link text-primary mt-auto">

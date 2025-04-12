@@ -18,7 +18,6 @@
 ### Local development
 
 - `npm run dev`: Start local development server
-- `npm run deploy`: deploy to github pages
 
 
 ## Blog Posts

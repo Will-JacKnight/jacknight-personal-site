@@ -50,7 +50,7 @@ export default function NavBar() {
                 pathname === '/' ? "text-primary" : "text-muted-foreground"
               )}
             >
-              <LogoIcon src="/logo.svg" className="h-8 w-8" />
+              <LogoIcon src="/favicon.svg" className="h-8 w-8" />
               <span className="ml-2 text-xl font-semibold">Jacknight&</span>
             </Link>
           </div>
