@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import { Highlight, themes } from 'prism-react-renderer';
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next"
+import { Tag } from "@/components/ui/tag"
 
 type BlogPageProps = {
   params: { slug: string[] }
@@ -71,14 +72,10 @@ export default function BlogPage({ params }: BlogPageProps) {
             {blog.tags && (
               <div className="flex flex-wrap gap-2 mt-4">
                 {blog.tags.map((tag) => (
-                  <span key={tag} className="px-2 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-full">
-                    {tag}
-                  </span>
+                  <Tag key={tag}>{tag}</Tag>
                 ))}
                 {blog.highlight && (
-                  <span className="px-2 py-1 text-xs font-medium bg-amber-500/20 text-amber-600 dark:bg-amber-500/30 dark:text-amber-400 rounded-full font-semibold">
-                    {blog.highlight}
-                  </span>
+                  <Tag variant="highlight">{blog.highlight}</Tag>
                 )}
               </div>
             )}

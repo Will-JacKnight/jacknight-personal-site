@@ -93,19 +93,5 @@
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2;
   }
   
-  .card-custom {
-    background: var(--card-bg);
-    border-radius: 12px;
-    padding: 2rem;
-    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    box-shadow: 0 4px 20px var(--shadow-color);
-  }
-  
-  .card-custom:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px var(--shadow-color);
-  }
+  /* Card styling moved to the component */
 } 

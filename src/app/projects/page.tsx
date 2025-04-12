@@ -1,5 +1,7 @@
 import PageLayout from "@/components/PageLayout"
 import Link from "next/link"
+import { Tag } from "@/components/ui/tag"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 const projects = [
   {
@@ -49,30 +51,34 @@ export default function ProjectsPage() {
 
             return (
               <ProjectWrapper key={index}>
-                <div className={`card-custom ${project.link ? 'group-hover:cursor-pointer' : ''}`}>
-                  <h2 className={`text-2xl font-semibold mb-2 ${project.link ? 'group-hover:text-primary transition-colors duration-200' : ''}`}>
-                    {project.title}
-                  </h2>
-                  <p className="text-muted-foreground mb-4 flex-grow">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span key={tagIndex} className="px-2 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-full">
-                        {tag}
-                      </span>
-                    ))}
-                    {project.highlight && (
-                      <span className="px-2 py-1 text-xs font-medium bg-amber-500/20 text-amber-600 dark:bg-amber-500/30 dark:text-amber-400 rounded-full font-semibold">
-                        {project.highlight}
-                      </span>
-                    )}
-                  </div>
-                  {project.link && (
-                    <div className="inline-flex items-center group/link text-primary mt-auto">
-                      <span>View Project</span>
-                      <span className="ml-1 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+                <Card variant={project.link ? "interactive" : "hover"}>
+                  <CardHeader>
+                    <CardTitle className={project.link ? "group-hover:text-primary transition-colors duration-200" : ""}>
+                      {project.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>
+                      {project.description}
+                    </CardDescription>
+                  </CardContent>
+                  <CardFooter className="flex flex-col items-start gap-4">
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag, tagIndex) => (
+                        <Tag key={tagIndex}>{tag}</Tag>
+                      ))}
+                      {project.highlight && (
+                        <Tag variant="highlight">{project.highlight}</Tag>
+                      )}
                     </div>
-                  )}
-                </div>
+                    {project.link && (
+                      <div className="inline-flex items-center text-primary">
+                        <span>View Project</span>
+                        <span className="ml-1 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+                      </div>
+                    )}
+                  </CardFooter>
+                </Card>
               </ProjectWrapper>
             );
           })}

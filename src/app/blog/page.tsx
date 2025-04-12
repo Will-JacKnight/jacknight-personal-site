@@ -1,6 +1,8 @@
 import PageLayout from "@/components/PageLayout"
 import Link from "next/link"
 import { allBlogs } from "@/lib/content-collections"
+import { Tag } from "@/components/ui/tag"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 export default function BlogPage() {
   // Sort blogs: featured posts first, then by date (newest first)
@@ -25,29 +27,33 @@ export default function BlogPage() {
               href={`/blog/${post.slug}`} 
               className="block group"
             >
-              <article className="card-custom group-hover:cursor-pointer">
-                <h2 className="text-2xl font-semibold mb-2 transition-colors duration-200 group-hover:text-primary">
-                  {post.title}
-                </h2>
-                <p className="text-muted-foreground mb-4 flex-grow">{post.description || ""}</p>
-                <div className="flex items-center justify-between mt-auto">
-                  <div className="flex flex-wrap gap-2">
-                    {post.tags && post.tags.map((tag) => (
-                      <span key={tag} className="px-2 py-1 text-xs font-medium bg-secondary text-secondary-foreground rounded-full">
-                        {tag}
-                      </span>
-                    ))}
-                    {post.highlight && (
-                      <span className="px-2 py-1 text-xs font-medium bg-amber-500/20 text-amber-600 dark:bg-amber-500/30 dark:text-amber-400 rounded-full font-semibold">
-                        {post.highlight}
-                      </span>
-                    )}
+              <Card variant="interactive">
+                <CardHeader>
+                  <CardTitle className="group-hover:text-primary transition-colors duration-200">
+                    {post.title}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    {post.description || ""}
+                  </CardDescription>
+                </CardContent>
+                <CardFooter>
+                  <div className="flex items-center justify-between w-full">
+                    <div className="flex flex-wrap gap-2">
+                      {post.tags && post.tags.map((tag) => (
+                        <Tag key={tag}>{tag}</Tag>
+                      ))}
+                      {post.highlight && (
+                        <Tag variant="highlight">{post.highlight}</Tag>
+                      )}
+                    </div>
+                    <time dateTime={post.date} className="text-sm text-muted-foreground">
+                      {new Date(post.date).toLocaleDateString()}
+                    </time>
                   </div>
-                  <time dateTime={post.date} className="text-sm text-muted-foreground">
-                    {new Date(post.date).toLocaleDateString()}
-                  </time>
-                </div>
-              </article>
+                </CardFooter>
+              </Card>
             </Link>
           ))}
         </div>
