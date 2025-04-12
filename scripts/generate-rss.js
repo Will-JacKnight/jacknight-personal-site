@@ -5,11 +5,12 @@ const path = require('path');
 const matter = require('gray-matter');
 const { Feed } = require('feed');
 const { marked } = require('marked');
+const { config } = require('../src/lib/config');
 
-const BASE_URL = 'https://jacknight.com';
+const BASE_URL = config.site.baseUrl;
 const AUTHOR = {
-  name: "Jack Night",
-  email: "info@jacknight.com",
+  name: config.author.name,
+  email: config.author.email,
   link: BASE_URL
 };
 
@@ -54,14 +55,14 @@ async function generateRSSFeed() {
 
     // Create feed
     const feed = new Feed({
-      title: "Jacknight's Blog",
-      description: "Articles on web development, technology, and more",
+      title: config.rss.title,
+      description: config.rss.description,
       id: BASE_URL,
       link: BASE_URL,
       language: "en",
       image: `${BASE_URL}/favicon.png`,
       favicon: `${BASE_URL}/favicon.ico`,
-      copyright: `All rights reserved ${new Date().getFullYear()}, Jack Night`,
+      copyright: `All rights reserved ${new Date().getFullYear()}, ${config.author.name}`,
       updated: new Date(),
       generator: "Feed for Node.js",
       feedLinks: {

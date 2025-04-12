@@ -1,5 +1,6 @@
 import PageLayout from "@/components/PageLayout"
 import { Github, Linkedin, Mail } from "lucide-react"
+import { config } from "@/lib/config"
 
 export default function AboutPage() {
   return (
@@ -8,7 +9,7 @@ export default function AboutPage() {
         <h1 className="text-4xl font-bold mb-8">About Me</h1>
         <div className="prose dark:prose-invert">
           <p className="text-lg mb-6">
-            Hi, I'm Jack. I'm now a postgraduate in Computing at Imperial College London.
+            Hi, I'm Jiankai, you may also know me as Jacknight. I'm now a Computing postgraduate at Imperial College London.
           </p>
           <div className="space-y-6">
             <div>
@@ -35,7 +36,7 @@ export default function AboutPage() {
               <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://github.com/Will-JacKnight"
+                  href={config.social.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -44,7 +45,7 @@ export default function AboutPage() {
                   <span>GitHub</span>
                 </a>
                 <a
-                  href="https://linkedin.com/in/jiankai-wang"
+                  href={config.social.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -53,7 +54,7 @@ export default function AboutPage() {
                   <span>LinkedIn</span>
                 </a>
                 <a
-                  href="mailto:wang.jiankai@outlook.com"
+                  href={config.author.email}
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <Mail className="w-5 h-5" />

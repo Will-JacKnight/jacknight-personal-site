@@ -6,9 +6,9 @@ export const config = {
     name: "Jacknight's Personal Site",
     description: "Personal website and blog of Jacknight",
     keywords: ["web development", "programming", "typescript", "react", "nextjs"],
-    url: "https://jacknight.com",
-    baseUrl: "https://jacknight.com",
-    image: "https://jacknight.com/og-image.png",
+    url: "https://will-jacknight.github.io",
+    baseUrl: "https://will-jacknight.github.io",
+    image: "https://will-jacknight.github.io/og-image.png",
     favicon: {
       ico: "/favicon.ico",
       png: "/favicon.png",
@@ -19,16 +19,20 @@ export const config = {
   },
   author: {
     name: "Jacknight",
-    email: "info@jacknight.com",
-    bio: "Developer and designer focused on creating elegant, functional digital experiences.",
+    email: "wang.jiankai@outlook.com",
+    bio: "Machine Learning Engineer, Full Stack Developer",
   },
   social: {
-    github: "https://github.com/jackknight",
-    twitter: "https://twitter.com/jackknight",
-    linkedin: "https://linkedin.com/in/jackknight",
+    github: "https://github.com/Will-JacKnight",
+    // twitter: "https://twitter.com/jacknight",
+    linkedin: "https://www.linkedin.com/in/jiankai-wang/",
+  },
+  rss: {
+    title: "Jacknight's Blog",
+    description: "Articles on web development, technology, and more"
   },
   seo: {
-    metadataBase: new URL("https://jacknight.com"),
+    metadataBase: new URL("https://will-jacknight.github.io"),
     alternates: {
       canonical: './',
     },
@@ -38,7 +42,7 @@ export const config = {
     },
     twitter: {
       card: "summary_large_image" as const,
-      creator: "@jackknight",
+      creator: "@jacknight",
     },
   },
 }; 
