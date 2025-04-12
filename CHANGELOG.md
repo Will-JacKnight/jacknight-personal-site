@@ -1,6 +1,31 @@
 # Changelog
 
-## [0.0.1] - 2024-03-21
+## [0.0.2] - 2025-04-12
+
+### Logo Implementation Evaluation
+
+#### Findings
+- Compared two approaches for logo implementation:
+  1. **Dynamic Loading** (`LogoIcon` component): Loads SVG from favicon.svg at runtime
+  2. **Hardcoded SVG** (`Logo` component): Embeds the SVG directly in the component
+
+#### Decision
+- **Chose Hardcoded SVG Approach** for the following reasons:
+  - Eliminates logo "blinking" on page refresh/initial load
+  - Better performance (no additional HTTP request)
+  - Simpler implementation with fewer moving parts
+  - Critical UI element where visual stability is prioritized over DRY principles
+
+#### Trade-offs
+- **Advantage of Dynamic Approach**: Single source of truth for logo in favicon.svg
+- **Advantage of Hardcoded Approach**: Immediate rendering without loading state
+
+#### Maintenance Note
+- When updating the logo design, remember to update in two places:
+  1. `/public/favicon.svg` for the favicon
+  2. `src/components/icons/Logo.tsx` for the in-app logo
+
+## [0.0.1] - 2025-04-10
 
 ### Migration from Vite to Next.js
 

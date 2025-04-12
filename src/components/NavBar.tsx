@@ -1,11 +1,11 @@
 "use client"
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from './theme-toggle';
-import { LogoIcon } from './icons/LogoIcon';
+import { Logo } from './icons/Logo';
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +50,7 @@ export default function NavBar() {
                 pathname === '/' ? "text-primary" : "text-muted-foreground"
               )}
             >
-              <LogoIcon src="/favicon.svg" className="h-8 w-8" />
+              <Logo className="h-8 w-8" />
               <span className="ml-2 text-xl font-semibold">Jacknight&</span>
             </Link>
           </div>
