@@ -1,5 +1,7 @@
 # Jacknight& Site
 
+## Credits
+This structure is inspired by Guangzheng Li's [nextjs-blog-template](https://github.com/guangzhengli/nextjs-blog-template).
 
 ## Site Infos
 - [Deployed Site URL](https://jacknight-and-friends.vercel.app/)
@@ -42,3 +44,7 @@
     ---
     ```
 - The ```highlight``` tag is optional, once set the post will be pinned to the top of blog page
+
+## License
+
+This project is licensed under the [MIT License](public/LICENSE.txt).

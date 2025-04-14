@@ -1,5 +1,3 @@
-import { URL } from "url";
-
 export const config = {
   site: {
     title: "Jacknight&",

@@ -8,6 +8,7 @@ import { ThemeToggle } from './theme-toggle';
 import { Logo } from './icons/Logo';
 
 export default function NavBar() {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
 
@@ -18,6 +19,14 @@ export default function NavBar() {
   const closeMenu = () => {
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,23 +44,22 @@ export default function NavBar() {
     { path: '/blog', label: 'Blog' },
     { path: '/projects', label: 'Projects' },
     { path: '/about', label: 'About' },
-    
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b">
+    <nav className={cn(
+      "fixed top-0 left-0 right-0 z-50 bg-background/5 backdrop-blur-sm border-b border-border/10 transition-all duration-300", 
+      isScrolled ? "bg-background/10 shadow-sm" : ""
+    )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link 
               href="/" 
-              className={cn(
-                "flex items-center transition-colors hover:text-primary",
-                pathname === '/' ? "text-primary" : "text-muted-foreground"
-              )}
+              className="flex items-center gap-2 transition-all duration-300 hover:opacity-90 group"
             >
-              <Logo className="h-8 w-8" />
-              <span className="ml-2 text-xl font-semibold">Jacknight&</span>
+              <Logo className="h-8 w-8 transition-transform duration-300 group-hover:rotate-[-5deg]" />
+              <span className="text-xl font-semibold">Jacknight&</span>
             </Link>
           </div>
 
@@ -62,11 +70,17 @@ export default function NavBar() {
                 key={item.path}
                 href={item.path}
                 className={cn(
-                  "text-sm font-medium transition-colors hover:text-primary",
-                  pathname === item.path ? "text-primary" : "text-muted-foreground"
+                  "relative py-2 text-sm font-medium transition-colors",
+                  pathname === item.path 
+                    ? "text-foreground" 
+                    : "text-muted-foreground hover:text-foreground"
                 )}
               >
-                {item.label}
+                <span>{item.label}</span>
+                <span className={cn(
+                  "absolute bottom-0 left-0 h-0.5 bg-foreground transition-all duration-300",
+                  pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
+                )} />
               </Link>
             ))}
             <div className="ml-2">
@@ -81,7 +95,7 @@ export default function NavBar() {
             </div>
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-primary focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-muted-foreground hover:text-foreground focus:outline-none"
               aria-expanded={isOpen}
             >
               <span className="sr-only">Open main menu</span>
@@ -139,8 +153,8 @@ export default function NavBar() {
               className={cn(
                 "block px-3 py-2 rounded-md text-base font-medium",
                 pathname === item.path
-                  ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
+                  ? "bg-accent text-accent-foreground"
+                  : "text-muted-foreground hover:bg-accent/50 hover:text-accent-foreground"
               )}
             >
               {item.label}
