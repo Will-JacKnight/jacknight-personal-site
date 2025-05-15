@@ -1,0 +1,61 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Jacknight's Blog",
+    "home_page_url": "https://jacknight-and-friends.vercel.app/",
+    "feed_url": "https://jacknight-and-friends.vercel.app//feed.json",
+    "description": "Articles on web development, technology, and more",
+    "icon": "https://jacknight-and-friends.vercel.app//favicon.png",
+    "author": {
+        "name": "Jacknight",
+        "url": "https://jacknight-and-friends.vercel.app/"
+    },
+    "items": [
+        {
+            "id": "https://jacknight-and-friends.vercel.app//blog/draft/swift-app-development",
+            "content_html": "",
+            "url": "https://jacknight-and-friends.vercel.app//blog/draft/swift-app-development",
+            "title": "Untitled Post",
+            "date_modified": "2025-04-15T06:30:11.129Z",
+            "author": {
+                "name": "Jacknight",
+                "url": "https://jacknight-and-friends.vercel.app/"
+            }
+        },
+        {
+            "id": "https://jacknight-and-friends.vercel.app//blog/design-choices-of-web-dev",
+            "content_html": "<h2>Intros</h2>\n<!-- ## Contents -->\n\n\n<h2>Architecture</h2>\n<h2>Frontend</h2>\n<h3>Routing</h3>\n<ul>\n<li>Client side routing</li>\n<li>Server side routing</li>\n</ul>\n<h4>how next.js handles routing</h4>\n<ul>\n<li>No explicit routing configuration needed</li>\n<li>Directory structure = URL structure</li>\n<li>page.tsx creates routes</li>\n<li>layout.tsx wraps routes</li>\n<li>Nested folders create nested routes</li>\n<li>Special file names have special meanings</li>\n<li>Everything is automatically code-split</li>\n</ul>\n<p>// These names are fixed Next.js conventions:\npage.tsx      // ✅ Required for routes\nlayout.tsx    // ✅ Required for layouts\nloading.tsx   // ✅ Required for loading UI\nerror.tsx     // ✅ Required for error boundaries\nnot-found.tsx // ✅ Required for 404 pages</p>\n<h3>Styles</h3>\n<ul>\n<li>Tailwind CSS over native CSS<ul>\n<li>describe styles declaratively using class names<pre><code class=\"language-tsx\">&lt;div className=&quot;bg-blue-500 text-white p-4 rounded-lg&quot;&gt;\nHello, Tailwind!\n&lt;/div&gt;\n</code></pre>\n</li>\n<li>configure theme with tailwind.config.js</li>\n<li>built-in dark mode support</li>\n</ul>\n</li>\n</ul>\n<h2>Backend</h2>\n<h2>Deployment</h2>\n<h3>Environment Structure</h3>\n<pre><code class=\"language-bsh\"># Branch Structure\nmain (production)\n  └── staging\n       └── development\n            └── feature branches\n\n# Deployment Flow\nfeature/* -&gt; development -&gt; staging -&gt; main\n</code></pre>\n",
+            "url": "https://jacknight-and-friends.vercel.app//blog/design-choices-of-web-dev",
+            "title": "Web Development Stack",
+            "summary": " A tool set go-through when developing this particular website.",
+            "date_modified": "2025-04-09T00:00:00.000Z",
+            "author": {
+                "name": "Jacknight",
+                "url": "https://jacknight-and-friends.vercel.app/"
+            }
+        },
+        {
+            "id": "https://jacknight-and-friends.vercel.app//blog/intro",
+            "content_html": "<h3>A Brief Intro</h3>\n<p>I have been longing for this blog for quite some time. It is not until the emergence of AI tools and some undertaken software development experience that makes this possible.</p>\n<p>Sometimes you will have this feeling that some ideas have to get out, whether it&#39;s in the shower or some small talks with friends, and it is quite a pity that without recording, they&#39;re very easy to flee away. </p>\n<p>In the days to come, I will keep updating this blog with my best ability, to capture these ideas. Hopefully, my readers, you can find this journey worthwhile.</p>\n<p>You&#39;re always welcome to drop me an <a href=\"mailto:wang.jiankai@outlook.com\">email</a>.</p>\n<h3>About the Main Page Images</h3>\n<p>The moss picture was taken on my last journey to Saihoji Garden in August 2024. It was a secret trip meant to get away from the normal life. All efforts paid off when reaching the temple. The tranquility and zen are beyond words.</p>\n<p>You see the nature, you see the nurturance, you see momentum.</p>\n<p>You discover deeper in yourself.</p>\n<p><img src=\"https://site-resources.lon1.cdn.digitaloceanspaces.com/images/saihoji-monk.JPG\" alt=\"saihoji monk, photographed in Aug,2024\">\n<img src=\"https://site-resources.lon1.cdn.digitaloceanspaces.com/images/saihoji-garden.jpg\" alt=\"saihoji moss garden, photographed in Aug,2024\"></p>\n",
+            "url": "https://jacknight-and-friends.vercel.app//blog/intro",
+            "title": "Intros",
+            "summary": "An introduction to my blog",
+            "date_modified": "2025-03-29T00:00:00.000Z",
+            "author": {
+                "name": "Jacknight",
+                "url": "https://jacknight-and-friends.vercel.app/"
+            }
+        },
+        {
+            "id": "https://jacknight-and-friends.vercel.app//blog/early-thoughts-of-orion",
+            "content_html": "<p>Orion发布后有一些感触，简单谈谈对于Meta产品设计理念的看法，Vision Pro产品定位的一些问题和我对于AR眼镜产品形态的理解。</p>\n<p><img src=\"https://site-resources.lon1.cdn.digitaloceanspaces.com/images/posts/Orion-on-face.png\" alt=\"Glasses, neural wristband and compute puck. Image from The Verge\"></p>\n<p>Orion采用分体式有几个我认为的原因，一个Meta的芯片设计功力没Apple强，能耗比做不上去，像Vision Pro那样的高ppi双屏显示算力不足会严重影响刷新率。Meta在这方面的自我定位一直很好，年前的Meta Rayban就是很好的例子：他们只保留了摄像头和语音模组，去掉了所有的显示，使之成为了一个很好的第一人称视角眼镜。Meta知道在功能间取舍，我的目标就是做好当前算力范围下的最优体验，不是硬堆算力和散热去让整个产品臃肿化。这种思想也根植在iPhone对于直屏的坚持中，你不得不承认</p>\n<p>「有时候优秀的简单设计比稀碎的复杂设计更好」。</p>\n<p><img src=\"https://site-resources.lon1.cdn.digitaloceanspaces.com/images/posts/Vision-Pro.png\" alt=\"Vision Pro, image by Apple\"></p>\n<p><img src=\"https://site-resources.lon1.cdn.digitaloceanspaces.com/images/posts/Ray-Ban.png\" alt=\"Meta-Rayban, image by The Verge\"></p>\n<p>而分体式可以让显示设备，即眼镜本体只专注于成像和通信，计算负荷、发热、功耗都会小很多，技术的可行性更强。这不是主要的，Apple早年在Vision Pro开发的时候也考虑过这个问题，Rockwell他们也做了一个分体式的原型，但是Ive当时给出的解释是希望可以摆脱计算中枢的束缚，能够在空间中自由移动。这个观点不无道理，但是其实像AirPods其实已经给了我们答案：</p>\n<p>我们只要把计算中枢小型化到能放进口袋就行了。</p>\n<p>放进口袋的分体式设备就是最佳的AR眼睛形态，你既不丧失设备的灵活性，又能够降低头部负荷，一举两得。</p>\n<p>然而新的问题诞生了，口袋计算设备一散热package不够大，第二不好做主动散热，这对计算单元的能耗比提出了更高的要求，但是终归来讲相比于Vision Pro目前的集成式迭代路线，显然更具备技术可行性。</p>\n<p>（计算单元的电池问题倒是很简单，采用背靠背的磁吸或触点充电形态，不够了换一块就行了，真正的难点还在overall package和ventilation）</p>\n<p>Meta在这次的Orion中能真正让人看到他们对于产品定位的理解：</p>\n<p>「我不需要那么高清的显示，相反在以现实透视画面为主的增强信息流上用摄像头辅助AI识别分析给出结果/建议，这才是人们想要的」</p>\n<p>人们不需要一个可以带着走的电影院，人们出门真的带把伞就足够了。</p>\n",
+            "url": "https://jacknight-and-friends.vercel.app//blog/early-thoughts-of-orion",
+            "title": "Early Thoughts of Orion",
+            "summary": "Why Orion should look like this, and why I think it’s a correct way of thinking.",
+            "date_modified": "2024-09-28T00:00:00.000Z",
+            "author": {
+                "name": "Jacknight",
+                "url": "https://jacknight-and-friends.vercel.app/"
+            }
+        }
+    ]
+}

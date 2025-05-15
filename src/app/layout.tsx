@@ -11,14 +11,14 @@ export const metadata: Metadata = {
   title: config.site.title,
   description: config.site.description,
   keywords: config.site.keywords,
-  manifest: "/site.webmanifest",
+  manifest: config.site.manifest,
   icons: {
     icon: [
-      { url: '/favicon.ico' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: config.site.favicon.ico },
+      { url: config.site.favicon.svg, type: 'image/svg+xml' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png' }
+      { url: config.site.favicon.appleTouchIcon }
     ]
   }
 }
@@ -37,6 +37,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+        <link rel="alternate" type="application/atom+xml" title="Atom" href="/atom.xml" />
+        <link rel="alternate" type="application/json" title="JSON" href="/feed.json" />
+      </head>
       <body className={inter.className}>
         <ThemeProvider
           attribute="class"

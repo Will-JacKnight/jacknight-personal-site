@@ -5,7 +5,38 @@ const path = require('path');
 const matter = require('gray-matter');
 const { Feed } = require('feed');
 const { marked } = require('marked');
-const { config } = require('../src/lib/config');
+const fs = require('fs');
+
+// Function to load the TypeScript config file
+function loadConfig() {
+  try {
+    // Read the TypeScript config file
+    const configPath = join(process.cwd(), 'src/lib/config.ts');
+    const configContent = fs.readFileSync(configPath, 'utf-8');
+    
+    // Extract the configuration object using a regular expression
+    // This is a simple approach that works for basic TS files
+    const configMatch = configContent.match(/export const config = ({[\s\S]*?});/);
+    if (!configMatch) {
+      throw new Error('Could not parse config file');
+    }
+    
+    // Remove TypeScript-specific syntax that would cause issues in eval
+    let configJson = configMatch[1]
+      .replace(/as const/g, '')
+      .replace(/new URL\(["']([^"']+)["']\)/g, '"$1"');
+    
+    // Use Function constructor instead of eval for better isolation
+    const configObject = new Function(`return ${configJson}`)();
+    return configObject;
+  } catch (error) {
+    console.error('Error loading config:', error);
+    process.exit(1);
+  }
+}
+
+// Load the config
+const config = loadConfig();
 
 const BASE_URL = config.site.baseUrl;
 const AUTHOR = {
@@ -30,12 +61,19 @@ async function scanMarkdownFiles(dir) {
       const relativePath = relative(join(process.cwd(), 'src/content'), dir);
       const urlPath = join(relativePath, entry.name.replace('.md', '')).replace(/\\/g, '/');
       
+      // Ensure we have valid date objects
+      const pubDate = data.date ? new Date(data.date) : new Date();
+      const updatedDate = data.updated ? new Date(data.updated) : undefined;
+      
+      // Validate the dates before adding to files
+      const isValidDate = date => date instanceof Date && !isNaN(date);
+      
       files.push({
         ...data,
         content: markdown,
         url: `${BASE_URL}/${urlPath}`,
-        date: new Date(data.date),
-        updated: data.updated ? new Date(data.updated) : undefined
+        date: isValidDate(pubDate) ? pubDate : new Date(),
+        updated: updatedDate && isValidDate(updatedDate) ? updatedDate : undefined
       });
     }
   }
@@ -77,15 +115,17 @@ async function generateRSSFeed() {
     for (const post of posts) {
       const htmlContent = marked(post.content);
       
+      // Ensure all required fields are valid
       feed.addItem({
-        title: post.title,
+        title: post.title || 'Untitled Post',
         id: post.url,
         link: post.url,
         description: post.description || "",
         content: htmlContent,
         author: [AUTHOR],
         date: post.date,
-        updated: post.updated,
+        // Only include updated if it's a valid date
+        ...(post.updated ? { updated: post.updated } : {})
       });
     }
 

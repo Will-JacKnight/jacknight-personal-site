@@ -4,9 +4,9 @@ export const config = {
     name: "Jacknight's Personal Site",
     description: "Personal website and blog of Jacknight",
     keywords: ["web development", "programming", "typescript", "react", "nextjs"],
-    url: "https://will-jacknight.github.io",
-    baseUrl: "https://will-jacknight.github.io",
-    image: "https://will-jacknight.github.io/og-image.png",
+    url: "https://jacknight-and-friends.vercel.app/",
+    baseUrl: "https://jacknight-and-friends.vercel.app/",
+    image: "https://jacknight-and-friends.vercel.app/",
     favicon: {
       ico: "/favicon.ico",
       png: "/favicon.png",
@@ -30,7 +30,7 @@ export const config = {
     description: "Articles on web development, technology, and more"
   },
   seo: {
-    metadataBase: new URL("https://will-jacknight.github.io"),
+    metadataBase: new URL("https://jacknight-and-friends.vercel.app/"),
     alternates: {
       canonical: './',
     },
