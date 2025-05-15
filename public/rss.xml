@@ -4,7 +4,7 @@
         <title>Jacknight's Blog</title>
         <link>https://jacknight-and-friends.vercel.app/</link>
         <description>Articles on web development, technology, and more</description>
-        <lastBuildDate>Tue, 15 Apr 2025 06:30:11 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 15 May 2025 11:31:22 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <language>en</language>
@@ -14,13 +14,6 @@
             <link>https://jacknight-and-friends.vercel.app/</link>
         </image>
         <copyright>All rights reserved 2025, Jacknight</copyright>
-        <item>
-            <title><![CDATA[Untitled Post]]></title>
-            <link>https://jacknight-and-friends.vercel.app//blog/draft/swift-app-development</link>
-            <guid>https://jacknight-and-friends.vercel.app//blog/draft/swift-app-development</guid>
-            <pubDate>Tue, 15 Apr 2025 06:30:11 GMT</pubDate>
-            <author>wang.jiankai@outlook.com (Jacknight)</author>
-        </item>
         <item>
             <title><![CDATA[Web Development Stack]]></title>
             <link>https://jacknight-and-friends.vercel.app//blog/design-choices-of-web-dev</link>

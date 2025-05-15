@@ -11,6 +11,14 @@ NC='\033[0m' # No Color
 
 echo -e "${BLUE}=== Blog Quick Commit Tool ===${NC}\n"
 
+# Navigate to the project root directory
+# Get the directory where the script is located
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+# Navigate to project root (assuming script is in src/content/blog)
+cd "$SCRIPT_DIR/../../../"
+
+echo -e "${BLUE}Working from directory: $(pwd)${NC}\n"
+
 # Generate RSS feed by default
 echo -e "${BLUE}Updating RSS feed...${NC}"
 npm run generate-rss

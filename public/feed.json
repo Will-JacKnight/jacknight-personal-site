@@ -11,17 +11,6 @@
     },
     "items": [
         {
-            "id": "https://jacknight-and-friends.vercel.app//blog/draft/swift-app-development",
-            "content_html": "",
-            "url": "https://jacknight-and-friends.vercel.app//blog/draft/swift-app-development",
-            "title": "Untitled Post",
-            "date_modified": "2025-04-15T06:30:11.129Z",
-            "author": {
-                "name": "Jacknight",
-                "url": "https://jacknight-and-friends.vercel.app/"
-            }
-        },
-        {
             "id": "https://jacknight-and-friends.vercel.app//blog/design-choices-of-web-dev",
             "content_html": "<h2>Intros</h2>\n<!-- ## Contents -->\n\n\n<h2>Architecture</h2>\n<h2>Frontend</h2>\n<h3>Routing</h3>\n<ul>\n<li>Client side routing</li>\n<li>Server side routing</li>\n</ul>\n<h4>how next.js handles routing</h4>\n<ul>\n<li>No explicit routing configuration needed</li>\n<li>Directory structure = URL structure</li>\n<li>page.tsx creates routes</li>\n<li>layout.tsx wraps routes</li>\n<li>Nested folders create nested routes</li>\n<li>Special file names have special meanings</li>\n<li>Everything is automatically code-split</li>\n</ul>\n<p>// These names are fixed Next.js conventions:\npage.tsx      // ✅ Required for routes\nlayout.tsx    // ✅ Required for layouts\nloading.tsx   // ✅ Required for loading UI\nerror.tsx     // ✅ Required for error boundaries\nnot-found.tsx // ✅ Required for 404 pages</p>\n<h3>Styles</h3>\n<ul>\n<li>Tailwind CSS over native CSS<ul>\n<li>describe styles declaratively using class names<pre><code class=\"language-tsx\">&lt;div className=&quot;bg-blue-500 text-white p-4 rounded-lg&quot;&gt;\nHello, Tailwind!\n&lt;/div&gt;\n</code></pre>\n</li>\n<li>configure theme with tailwind.config.js</li>\n<li>built-in dark mode support</li>\n</ul>\n</li>\n</ul>\n<h2>Backend</h2>\n<h2>Deployment</h2>\n<h3>Environment Structure</h3>\n<pre><code class=\"language-bsh\"># Branch Structure\nmain (production)\n  └── staging\n       └── development\n            └── feature branches\n\n# Deployment Flow\nfeature/* -&gt; development -&gt; staging -&gt; main\n</code></pre>\n",
             "url": "https://jacknight-and-friends.vercel.app//blog/design-choices-of-web-dev",
