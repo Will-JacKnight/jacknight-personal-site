@@ -11,6 +11,17 @@ NC='\033[0m' # No Color
 
 echo -e "${BLUE}=== Blog Quick Commit Tool ===${NC}\n"
 
+# Generate RSS feed by default
+echo -e "${BLUE}Updating RSS feed...${NC}"
+npm run generate-rss
+
+# Check if the RSS generation was successful
+if [ $? -eq 0 ]; then
+  echo -e "${GREEN}RSS feed updated successfully!${NC}\n"
+else
+  echo -e "${YELLOW}Warning: RSS feed update may have failed. Check for errors.${NC}\n"
+fi
+
 # Check if there are any changes
 if [[ -z $(git status -s) ]]; then
   echo -e "${YELLOW}No changes to commit.${NC}"
@@ -27,7 +38,7 @@ read -p "Enter commit message: " commit_message
 
 if [[ -z "$commit_message" ]]; then
   echo -e "${YELLOW}Commit message cannot be empty. Using default message.${NC}"
-  commit_message="Update blog content"
+  commit_message="Update blog content and RSS feed"
 fi
 
 # Add all changes
