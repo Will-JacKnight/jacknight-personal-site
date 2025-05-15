@@ -51,9 +51,8 @@ async function scanMarkdownFiles(dir) {
 
   for (const entry of entries) {
     const fullPath = join(dir, entry.name);
-    if (entry.isDirectory()) {
-      files.push(...await scanMarkdownFiles(fullPath));
-    } else if (entry.name.endsWith('.md')) {
+    // Remove recursive directory handling and only process markdown files in the current directory
+    if (!entry.isDirectory() && entry.name.endsWith('.md')) {
       const content = await readFile(fullPath, 'utf-8');
       const { data, content: markdown } = matter(content);
       
