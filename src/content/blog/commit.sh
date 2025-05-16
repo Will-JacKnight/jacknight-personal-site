@@ -19,17 +19,6 @@ cd "$SCRIPT_DIR/../../../"
 
 echo -e "${BLUE}Working from directory: $(pwd)${NC}\n"
 
-# Generate RSS feed by default
-echo -e "${BLUE}Updating RSS feed...${NC}"
-npm run generate-rss
-
-# Check if the RSS generation was successful
-if [ $? -eq 0 ]; then
-  echo -e "${GREEN}RSS feed updated successfully!${NC}\n"
-else
-  echo -e "${YELLOW}Warning: RSS feed update may have failed. Check for errors.${NC}\n"
-fi
-
 # Check if there are any changes
 if [[ -z $(git status -s) ]]; then
   echo -e "${YELLOW}No changes to commit.${NC}"

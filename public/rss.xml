@@ -4,7 +4,7 @@
         <title>Jacknight's Blog</title>
         <link>https://jacknight-and-friends.vercel.app/</link>
         <description>Articles on web development, technology, and more</description>
-        <lastBuildDate>Thu, 15 May 2025 11:31:22 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 16 May 2025 20:17:30 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>Feed for Node.js</generator>
         <language>en</language>
@@ -14,67 +14,6 @@
             <link>https://jacknight-and-friends.vercel.app/</link>
         </image>
         <copyright>All rights reserved 2025, Jacknight</copyright>
-        <item>
-            <title><![CDATA[Web Development Stack]]></title>
-            <link>https://jacknight-and-friends.vercel.app//blog/design-choices-of-web-dev</link>
-            <guid>https://jacknight-and-friends.vercel.app//blog/design-choices-of-web-dev</guid>
-            <pubDate>Wed, 09 Apr 2025 00:00:00 GMT</pubDate>
-            <description><![CDATA[ A tool set go-through when developing this particular website.]]></description>
-            <content:encoded><![CDATA[<h2>Intros</h2>
-<!-- ## Contents -->
-
-
-<h2>Architecture</h2>
-<h2>Frontend</h2>
-<h3>Routing</h3>
-<ul>
-<li>Client side routing</li>
-<li>Server side routing</li>
-</ul>
-<h4>how next.js handles routing</h4>
-<ul>
-<li>No explicit routing configuration needed</li>
-<li>Directory structure = URL structure</li>
-<li>page.tsx creates routes</li>
-<li>layout.tsx wraps routes</li>
-<li>Nested folders create nested routes</li>
-<li>Special file names have special meanings</li>
-<li>Everything is automatically code-split</li>
-</ul>
-<p>// These names are fixed Next.js conventions:
-page.tsx      // ✅ Required for routes
-layout.tsx    // ✅ Required for layouts
-loading.tsx   // ✅ Required for loading UI
-error.tsx     // ✅ Required for error boundaries
-not-found.tsx // ✅ Required for 404 pages</p>
-<h3>Styles</h3>
-<ul>
-<li>Tailwind CSS over native CSS<ul>
-<li>describe styles declaratively using class names<pre><code class="language-tsx">&lt;div className=&quot;bg-blue-500 text-white p-4 rounded-lg&quot;&gt;
-Hello, Tailwind!
-&lt;/div&gt;
-</code></pre>
-</li>
-<li>configure theme with tailwind.config.js</li>
-<li>built-in dark mode support</li>
-</ul>
-</li>
-</ul>
-<h2>Backend</h2>
-<h2>Deployment</h2>
-<h3>Environment Structure</h3>
-<pre><code class="language-bsh"># Branch Structure
-main (production)
-  └── staging
-       └── development
-            └── feature branches
-
-# Deployment Flow
-feature/* -&gt; development -&gt; staging -&gt; main
-</code></pre>
-]]></content:encoded>
-            <author>wang.jiankai@outlook.com (Jacknight)</author>
-        </item>
         <item>
             <title><![CDATA[Intros]]></title>
             <link>https://jacknight-and-friends.vercel.app//blog/intro</link>

@@ -11,18 +11,6 @@
     },
     "items": [
         {
-            "id": "https://jacknight-and-friends.vercel.app//blog/design-choices-of-web-dev",
-            "content_html": "<h2>Intros</h2>\n<!-- ## Contents -->\n\n\n<h2>Architecture</h2>\n<h2>Frontend</h2>\n<h3>Routing</h3>\n<ul>\n<li>Client side routing</li>\n<li>Server side routing</li>\n</ul>\n<h4>how next.js handles routing</h4>\n<ul>\n<li>No explicit routing configuration needed</li>\n<li>Directory structure = URL structure</li>\n<li>page.tsx creates routes</li>\n<li>layout.tsx wraps routes</li>\n<li>Nested folders create nested routes</li>\n<li>Special file names have special meanings</li>\n<li>Everything is automatically code-split</li>\n</ul>\n<p>// These names are fixed Next.js conventions:\npage.tsx      // ✅ Required for routes\nlayout.tsx    // ✅ Required for layouts\nloading.tsx   // ✅ Required for loading UI\nerror.tsx     // ✅ Required for error boundaries\nnot-found.tsx // ✅ Required for 404 pages</p>\n<h3>Styles</h3>\n<ul>\n<li>Tailwind CSS over native CSS<ul>\n<li>describe styles declaratively using class names<pre><code class=\"language-tsx\">&lt;div className=&quot;bg-blue-500 text-white p-4 rounded-lg&quot;&gt;\nHello, Tailwind!\n&lt;/div&gt;\n</code></pre>\n</li>\n<li>configure theme with tailwind.config.js</li>\n<li>built-in dark mode support</li>\n</ul>\n</li>\n</ul>\n<h2>Backend</h2>\n<h2>Deployment</h2>\n<h3>Environment Structure</h3>\n<pre><code class=\"language-bsh\"># Branch Structure\nmain (production)\n  └── staging\n       └── development\n            └── feature branches\n\n# Deployment Flow\nfeature/* -&gt; development -&gt; staging -&gt; main\n</code></pre>\n",
-            "url": "https://jacknight-and-friends.vercel.app//blog/design-choices-of-web-dev",
-            "title": "Web Development Stack",
-            "summary": " A tool set go-through when developing this particular website.",
-            "date_modified": "2025-04-09T00:00:00.000Z",
-            "author": {
-                "name": "Jacknight",
-                "url": "https://jacknight-and-friends.vercel.app/"
-            }
-        },
-        {
             "id": "https://jacknight-and-friends.vercel.app//blog/intro",
             "content_html": "<h3>A Brief Intro</h3>\n<p>I have been longing for this blog for quite some time. It is not until the emergence of AI tools and some undertaken software development experience that makes this possible.</p>\n<p>Sometimes you will have this feeling that some ideas have to get out, whether it&#39;s in the shower or some small talks with friends, and it is quite a pity that without recording, they&#39;re very easy to flee away. </p>\n<p>In the days to come, I will keep updating this blog with my best ability, to capture these ideas. Hopefully, my readers, you can find this journey worthwhile.</p>\n<p>You&#39;re always welcome to drop me an <a href=\"mailto:wang.jiankai@outlook.com\">email</a>.</p>\n<h3>About the Main Page Images</h3>\n<p>The moss picture was taken on my last journey to Saihoji Garden in August 2024. It was a secret trip meant to get away from the normal life. All efforts paid off when reaching the temple. The tranquility and zen are beyond words.</p>\n<p>You see the nature, you see the nurturance, you see momentum.</p>\n<p>You discover deeper in yourself.</p>\n<p><img src=\"https://site-resources.lon1.cdn.digitaloceanspaces.com/images/saihoji-monk.JPG\" alt=\"saihoji monk, photographed in Aug,2024\">\n<img src=\"https://site-resources.lon1.cdn.digitaloceanspaces.com/images/saihoji-garden.jpg\" alt=\"saihoji moss garden, photographed in Aug,2024\"></p>\n",
             "url": "https://jacknight-and-friends.vercel.app//blog/intro",

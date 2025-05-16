@@ -59,14 +59,15 @@ export default function Footer() {
             LinkedIn
           </Link>
           <div className="relative">
-            <Link 
+            <a 
               href="/rss.xml"
               className="text-sm text-muted-foreground/80 transition-all duration-300 hover:text-foreground relative after:absolute after:bottom-0 after:left-0 after:h-[1px] after:bg-current after:transition-all after:duration-300 after:w-0 hover:after:w-full"
               onClick={handleRSSClick}
               aria-label="Copy RSS Feed URL to clipboard"
+              download
             >
               RSS
-            </Link>
+            </a>
             {copyStatus && (
               <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-background border border-border rounded-md text-xs whitespace-nowrap">
                 {copyStatus}

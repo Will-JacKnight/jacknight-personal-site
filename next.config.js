@@ -12,6 +12,9 @@ const nextConfig = {
       },
     ],
   },
+  // Add assetPrefix configuration to ensure proper URLs for static assets
+  // If deploying to a domain root, you can remove this
+  // assetPrefix: './',
 };
 
 const withMDX = require('@next/mdx')({
