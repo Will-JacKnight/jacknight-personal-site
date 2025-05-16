@@ -48,8 +48,10 @@ export default function NavBar() {
 
   return (
     <nav className={cn(
-      "fixed top-0 left-0 right-0 z-50 bg-background/5 backdrop-blur-sm border-b border-border/10 transition-all duration-300", 
-      isScrolled ? "bg-background/10 shadow-sm" : ""
+      "fixed top-0 left-0 right-0 z-50 border-b border-border/10 transition-all duration-300", 
+      isScrolled 
+        ? "bg-background/60 backdrop-blur-[20px] shadow-[0_8px_32px_rgba(0,0,0,0.08)]" 
+        : "bg-background/20 backdrop-blur-[15px]"
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -144,7 +146,7 @@ export default function NavBar() {
           isOpen ? "block" : "hidden"
         )}
       >
-        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-background/60 backdrop-blur-[20px]">
           {navItems.map((item) => (
             <Link
               key={item.path}

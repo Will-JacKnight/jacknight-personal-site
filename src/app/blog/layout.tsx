@@ -33,7 +33,9 @@ export const metadata: Metadata = {
   },
   manifest: config.site.manifest,
   appleWebApp: {
+    capable: true,
     title: config.site.title,
+    statusBarStyle: 'default',
   },
 };
 

@@ -27,6 +27,20 @@ export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: light)', color: 'white' },
     { media: '(prefers-color-scheme: dark)', color: 'black' }
+  ],
+  viewportFit: 'cover',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  colorScheme: 'light dark'
+}
+
+export const webApp = {
+  capable: true,
+  title: config.site.title,
+  startupImage: [
+    { url: config.site.favicon.appleTouchIcon }
   ]
 }
 
@@ -41,6 +55,7 @@ export default function RootLayout({
         <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
         <link rel="alternate" type="application/atom+xml" title="Atom" href="/atom.xml" />
         <link rel="alternate" type="application/json" title="JSON" href="/feed.json" />
+        <meta name="mobile-web-app-capable" content="yes" />
       </head>
       <body className={inter.className}>
         <ThemeProvider
