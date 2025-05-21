@@ -70,6 +70,33 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            figure: {
+              margin: theme('spacing.8') + ' 0',
+            },
+            figcaption: {
+              color: theme('colors.muted.foreground'),
+              fontSize: theme('fontSize.sm')[0],
+              lineHeight: theme('lineHeight.snug'),
+              textAlign: 'center',
+              marginTop: theme('spacing.2'),
+            },
+            img: {
+              borderRadius: theme('borderRadius.md'),
+              margin: '0',
+            },
+          },
+        },
+        dark: {
+          css: {
+            figcaption: {
+              color: theme('colors.muted.foreground'),
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [

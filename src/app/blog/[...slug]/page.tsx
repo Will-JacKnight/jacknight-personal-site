@@ -7,6 +7,7 @@ import { Highlight, themes } from 'prism-react-renderer';
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next"
 import { Tag } from "@/components/ui/tag"
+import React from 'react';
 
 type BlogPageProps = {
   params: { slug: string[] }
@@ -109,6 +110,34 @@ export default function BlogPage({ params }: BlogPageProps) {
                     <code className={className} {...props}>
                       {children}
                     </code>
+                  );
+                },
+                p({ node, className, children, ...props }) {
+                  const hasOnlyImgChild = 
+                    React.Children.count(children) === 1 &&
+                    React.isValidElement(children) &&
+                    children.type === 'img';
+                  
+                  if (hasOnlyImgChild) {
+                    return <>{children}</>;
+                  }
+                  
+                  return <p className={className} {...props}>{children}</p>;
+                },
+                img({ src, alt, ...props }) {
+                  if (!src) return null;
+                  
+                  const parts = alt ? alt.split('|') : [];
+                  const imageAlt = parts[0]?.trim() || alt || '';
+                  const caption = parts[1]?.trim() || '';
+                  
+                  return (
+                    <figure className="my-8">
+                      <img src={src} alt={imageAlt} className="rounded-md w-full h-auto" {...props} />
+                      {caption && (
+                        <figcaption className="text-center mt-2 text-sm text-muted-foreground">{caption}</figcaption>
+                      )}
+                    </figure>
                   );
                 }
               }}

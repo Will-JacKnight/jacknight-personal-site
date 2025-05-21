@@ -45,6 +45,14 @@ This structure is inspired by Guangzheng Li's [nextjs-blog-template](https://git
     ```
 - The ```highlight``` tag is optional, once set the post will be pinned to the top of blog page
 
+### Add image captions
+
+- To add a caption to an image, add it after the alt text, separated by a pipe (`|`) character:
+
+```markdown
+![Image alt text | This is the caption text](path/to/image.jpg)
+```
+
 ## License
 
 This project is licensed under the [MIT License](public/LICENSE.txt).

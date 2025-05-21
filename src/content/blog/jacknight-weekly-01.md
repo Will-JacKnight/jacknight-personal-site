@@ -27,9 +27,9 @@ Nolvelty is a sense of interestingness increment. Go explore the unknown part of
 
 To conclude, there're some pictures taken recently at the Seven Sisters Cliff. Nicely weather, calming views, friendly neighbourhood, curious seegulls (trying to share our fish & chips). If anyone's interested in going to Briton, you should try this place named Pinocchio, they've got the best Italian food(Personally).
 
-![Seven Sisters Cliff](https://site-resources.lon1.cdn.digitaloceanspaces.com/images/posts/weekly1/cliff1.jpg)
-![Seven Sisters Cliff 2](https://site-resources.lon1.cdn.digitaloceanspaces.com/images/posts/weekly1/cliff2.jpg)
-![Seaford Beach](https://site-resources.lon1.cdn.digitaloceanspaces.com/images/posts/weekly1/beach1.jpg)
-![Seaford Beach 2](https://site-resources.lon1.cdn.digitaloceanspaces.com/images/posts/weekly1/beach2.jpg)
+![Seven Sisters Cliff | Seven Sisters Cliff](https://site-resources.lon1.cdn.digitaloceanspaces.com/images/posts/weekly1/cliff1.jpg)
+![Seaford Cliff| Seaford Cliff](https://site-resources.lon1.cdn.digitaloceanspaces.com/images/posts/weekly1/cliff2.jpg)
+![Seaford Shore | Seaford Shore](https://site-resources.lon1.cdn.digitaloceanspaces.com/images/posts/weekly1/beach1.jpg)
+![Seaford Beach | Seaford Beach](https://site-resources.lon1.cdn.digitaloceanspaces.com/images/posts/weekly1/beach2.jpg)
 
 
