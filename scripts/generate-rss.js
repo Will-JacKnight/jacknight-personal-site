@@ -39,11 +39,32 @@ function loadConfig() {
 const config = loadConfig();
 
 const BASE_URL = config.site.baseUrl;
+const IMAGE_BASE_URL = config.site.imageBaseUrl;
 const AUTHOR = {
   name: config.author.name,
   email: config.author.email,
   link: BASE_URL
 };
+
+// Utility function to resolve image URLs
+function resolveImageUrls(htmlContent) {
+  // Replace image src attributes that don't start with http:// or https://
+  return htmlContent.replace(
+    /<img([^>]*)src=["'](?!http:\/\/)(?!https:\/\/)([^"']*)["']([^>]*)>/gi,
+    (match, before, imgSrc, after) => {
+      // Skip URLs that are already absolute
+      if (imgSrc.startsWith('http://') || imgSrc.startsWith('https://')) {
+        return match;
+      }
+      
+      // Remove leading slash if present
+      const cleanImgSrc = imgSrc.startsWith('/') ? imgSrc.substring(1) : imgSrc;
+      
+      // Return the img tag with the resolved URL
+      return `<img${before}src="${IMAGE_BASE_URL}${cleanImgSrc}"${after}>`;
+    }
+  );
+}
 
 async function scanMarkdownFiles(dir) {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -112,7 +133,11 @@ async function generateRSSFeed() {
 
     // Add posts to feed
     for (const post of posts) {
-      const htmlContent = marked(post.content);
+      // Convert markdown to HTML
+      let htmlContent = marked(post.content);
+      
+      // Resolve relative image URLs to absolute URLs
+      htmlContent = resolveImageUrls(htmlContent);
       
       // Ensure all required fields are valid
       feed.addItem({
