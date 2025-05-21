@@ -12,7 +12,7 @@
       "static/chunks/fd9d1056-a86d52f6b747304e.js",
       "static/chunks/117-6dbcd207be9e43ae.js",
       "static/chunks/main-app-28e16b97755a3186.js",
-      "static/css/40254866eb7f3f48.css",
+      "static/css/f2246f80ecc3ff6f.css",
       "static/chunks/app/layout-d21108fa662fcd94.js"
     ],
     "/about/page": [
@@ -21,7 +21,7 @@
       "static/chunks/117-6dbcd207be9e43ae.js",
       "static/chunks/main-app-28e16b97755a3186.js",
       "static/chunks/236-c29296948bd1ba7e.js",
-      "static/chunks/965-38a561c02a32ccf5.js",
+      "static/chunks/965-53b7f9c8a4da7a4b.js",
       "static/chunks/app/about/page-13603ca5f4f8053a.js"
     ],
     "/page": [
@@ -30,7 +30,7 @@
       "static/chunks/117-6dbcd207be9e43ae.js",
       "static/chunks/main-app-28e16b97755a3186.js",
       "static/chunks/236-c29296948bd1ba7e.js",
-      "static/chunks/965-38a561c02a32ccf5.js",
+      "static/chunks/965-53b7f9c8a4da7a4b.js",
       "static/chunks/app/page-af4fb72d4c6ac3cc.js"
     ],
     "/projects/page": [
@@ -39,7 +39,7 @@
       "static/chunks/117-6dbcd207be9e43ae.js",
       "static/chunks/main-app-28e16b97755a3186.js",
       "static/chunks/236-c29296948bd1ba7e.js",
-      "static/chunks/965-38a561c02a32ccf5.js",
+      "static/chunks/965-53b7f9c8a4da7a4b.js",
       "static/chunks/app/projects/page-e38934ba196591f7.js"
     ],
     "/blog/page": [
@@ -48,7 +48,7 @@
       "static/chunks/117-6dbcd207be9e43ae.js",
       "static/chunks/main-app-28e16b97755a3186.js",
       "static/chunks/236-c29296948bd1ba7e.js",
-      "static/chunks/965-38a561c02a32ccf5.js",
+      "static/chunks/965-53b7f9c8a4da7a4b.js",
       "static/chunks/app/blog/page-1e7f3aecd590a3f0.js"
     ],
     "/blog/layout": [
@@ -64,7 +64,7 @@
       "static/chunks/117-6dbcd207be9e43ae.js",
       "static/chunks/main-app-28e16b97755a3186.js",
       "static/chunks/236-c29296948bd1ba7e.js",
-      "static/chunks/965-38a561c02a32ccf5.js",
+      "static/chunks/965-53b7f9c8a4da7a4b.js",
       "static/chunks/app/blog/[...slug]/page-a175bda18b527615.js"
     ]
   }

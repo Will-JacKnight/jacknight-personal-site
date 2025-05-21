@@ -7,6 +7,7 @@ export const config = {
     url: "https://jacknight-and-friends.vercel.app/",
     baseUrl: "https://jacknight-and-friends.vercel.app/",
     image: "https://jacknight-and-friends.vercel.app/",
+    imageBaseUrl: "https://site-resources.lon1.cdn.digitaloceanspaces.com/",
     favicon: {
       ico: "/favicon.ico",
       png: "/favicon.png",

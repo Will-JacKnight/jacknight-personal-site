@@ -4,7 +4,7 @@ import { allBlogs } from "@/lib/content-collections"
 import { notFound } from "next/navigation"
 import ReactMarkdown from 'react-markdown';
 import { Highlight, themes } from 'prism-react-renderer';
-import { cn } from "@/lib/utils";
+import { cn, getImageUrl } from "@/lib/utils";
 import type { Metadata } from "next"
 import { Tag } from "@/components/ui/tag"
 import React from 'react';
@@ -131,9 +131,11 @@ export default function BlogPage({ params }: BlogPageProps) {
                   const imageAlt = parts[0]?.trim() || alt || '';
                   const caption = parts[1]?.trim() || '';
                   
+                  const processedSrc = getImageUrl(src);
+                  
                   return (
                     <figure className="my-8">
-                      <img src={src} alt={imageAlt} className="rounded-md w-full h-auto" {...props} />
+                      <img src={processedSrc} alt={imageAlt} className="rounded-md w-full h-auto" {...props} />
                       {caption && (
                         <figcaption className="text-center mt-2 text-sm text-muted-foreground">{caption}</figcaption>
                       )}
