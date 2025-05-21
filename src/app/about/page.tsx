@@ -1,68 +1,87 @@
 import PageLayout from "@/components/PageLayout"
 import { Github, Linkedin, Mail } from "lucide-react"
 import { config } from "@/lib/config"
+import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+
+// Define sections with consistent structure for cards
+const aboutSections = [
+  {
+    title: "Background",
+    content: "A machine learning engineer, a software developer. Had some experience with project management, more happy to build products. A person with a warm heart."
+  },
+  {
+    title: "Philosophy",
+    content: "Quality over profit. Deep consideration to details, reject shabby and lousy products."
+  },
+  {
+    title: "Current Focus",
+    content: "Currently exploring evolutionary reinforcement learning in robotics and large scale software, with a particular interest in creating sustainable and scalable solutions."
+  }
+];
+
+// Contact links
+const contactLinks = [
+  {
+    name: "GitHub",
+    icon: <Github className="w-5 h-5" />,
+    href: config.social.github
+  },
+  {
+    name: "LinkedIn",
+    icon: <Linkedin className="w-5 h-5" />,
+    href: config.social.linkedin
+  },
+  {
+    name: "Email",
+    icon: <Mail className="w-5 h-5" />,
+    href: `mailto:${config.author.email}`
+  }
+];
 
 export default function AboutPage() {
   return (
     <PageLayout>
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl font-bold mb-8">About Me</h1>
-        <div className="prose dark:prose-invert">
-          <p className="text-lg mb-6">
-            Hi, I'm Jiankai, you may also know me as Jacknight. I'm now a Computing postgraduate at Imperial College London.
-          </p>
-          <div className="space-y-6">
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Background</h3>
-              <p>
-                A Mechanical Engineering graduate, a software developer and a machine learning enthusiast. 
-                Had some experience with project management, more happy to build products.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Philosophy</h3>
-              <p>
-                Good products speak for themselves. Our job is to make them heard.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-2">Current Focus</h3>
-              <p>
-                Currently exploring machine learning applications and large scale software,
-                with a particular interest in creating sustainable and scalable solutions.
-              </p>
-            </div>
-            <div>
-              <h3 className="text-xl font-semibold mb-4">Get in Touch</h3>
-              <div className="flex flex-wrap gap-4">
+        
+        <p className="text-lg mb-8">
+          Hi, I'm Jiankai. I'm now doing my MSc Computing degree at Imperial College London.
+        </p>
+        
+        <div className="flex flex-col gap-6">
+          {aboutSections.map((section, index) => (
+            <Card key={index} variant="hover">
+              <CardHeader>
+                <CardTitle>{section.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p>{section.content}</p>
+              </CardContent>
+            </Card>
+          ))}
+
+          <Card variant="hover">
+            <CardHeader>
+              <CardTitle>Get in Touch</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p>Feel free to reach out to me through any of the following channels.</p>
+            </CardContent>
+            <CardFooter className="flex flex-wrap gap-4">
+              {contactLinks.map((link, index) => (
                 <a
-                  href={config.social.github}
+                  key={index}
+                  href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  <Github className="w-5 h-5" />
-                  <span>GitHub</span>
+                  {link.icon}
+                  <span>{link.name}</span>
                 </a>
-                <a
-                  href={config.social.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Linkedin className="w-5 h-5" />
-                  <span>LinkedIn</span>
-                </a>
-                <a
-                  href={config.author.email}
-                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Mail className="w-5 h-5" />
-                  <span>Email</span>
-                </a>
-              </div>
-            </div>
-          </div>
+              ))}
+            </CardFooter>
+          </Card>
         </div>
       </div>
     </PageLayout>
