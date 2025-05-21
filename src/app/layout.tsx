@@ -20,6 +20,13 @@ export const metadata: Metadata = {
     apple: [
       { url: config.site.favicon.appleTouchIcon }
     ]
+  },
+  appleWebApp: {
+    capable: true,
+    title: config.site.title,
+    startupImage: [
+      { url: config.site.favicon.appleTouchIcon }
+    ]
   }
 }
 
@@ -36,14 +43,6 @@ export const viewport: Viewport = {
   colorScheme: 'light dark'
 }
 
-export const webApp = {
-  capable: true,
-  title: config.site.title,
-  startupImage: [
-    { url: config.site.favicon.appleTouchIcon }
-  ]
-}
-
 export default function RootLayout({
   children,
 }: {
@@ -56,6 +55,8 @@ export default function RootLayout({
         <link rel="alternate" type="application/atom+xml" title="Atom" href="/atom.xml" />
         <link rel="alternate" type="application/json" title="JSON" href="/feed.json" />
         <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content={config.site.title} />
       </head>
       <body className={inter.className}>
         <ThemeProvider
