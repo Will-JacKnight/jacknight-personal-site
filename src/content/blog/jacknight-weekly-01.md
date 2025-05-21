@@ -2,7 +2,7 @@
 title: "Jacknight Weekly 01"
 date: "2025-05-20"
 description: ""
-tags: ["Nolvelty", "Thoughts"]
+tags: ["Novelty", "Thoughts"]
 ---
 
 As a part of a new series, I'll try to piece together my recent readings and findings. Some of which are pieces that I've heard brillient people talking that makes me reflect deeper into myself. I'll post them here, for my personal reminder, also for your encouragement.
